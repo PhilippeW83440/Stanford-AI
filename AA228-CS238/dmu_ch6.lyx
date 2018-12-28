@@ -1,0 +1,2988 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extarticle
+\begin_preamble
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{calc}
+\usepackage{color,graphicx,overpic}
+\usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
+\usepackage{ifthen}
+\usepackage{multicol}
+\usepackage{titlesec}
+\usepackage{wrapfig}
+
+\titlespacing*{\section}{0pt}{0.5em}{0em}
+\titlespacing*{\subsection}{0pt}{0.5em}{0em}
+\titlespacing*{\subsubsection}{0pt}{0.5em}{0em}
+\titleformat{\section}{\vspace{1em}\titlerule\normalfont\fontsize{7}{7}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\fontsize{6}{6}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsubsection}{\titlerule\normalfont\fontsize{6}{6}}{\thesection}{1em}{}
+\titlespacing*{\labeling}{0pt}{0em}{0em}
+
+\let\stdboxed\boxed
+\renewcommand{\boxed}[1]{
+  \setlength{\fboxsep}{0.05em}
+  \stdboxed{#1}
+}
+
+\setlist{nolistsep,leftmargin=*}
+
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\columnsep}{10pt}
+
+\newtheorem{example}[section]{Example}
+
+\let\textquotedbl="
+\def\ci{\perp\!\!\!\perp}
+
+\raggedright
+
+\newcommand{\mytitle}[2]{
+  \begin{center}\small{#1} -- \scriptsize{#2}\end{center}
+}
+
+
+\hyphenpenalty=100
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows}
+\usetikzlibrary{er,positioning}
+\tikzset{
+    events/.style={ellipse, draw, align=center},
+}
+
+\usepackage{graphicx}
+\usetikzlibrary{fit}
+\usetikzlibrary{bayesnet}
+\usepackage{pgfplots}
+
+\usepackage{forest}
+\usetikzlibrary{positioning}
+\end_preamble
+\options 3pt
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman "times" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification false
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.25in
+\topmargin 0.25in
+\rightmargin 0.25in
+\bottommargin 0.25in
+\secnumdepth -2
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle empty
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fontsize{8}{7}
+\backslash
+selectfont
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mytitle{
+\backslash
+textbf{Decision Making Under Uncertainty Ch6 Stanford AA228 course notes}}{
+\backslash
+textbf{Philippe Weingertner}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{multicols}{3}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% FOR 2 PAGES VERSION:
+\end_layout
+
+\begin_layout Plain Layout
+
+% fontsize{6}{5} + multicols}{4}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% FOR 3 PAGES VERSION:
+\end_layout
+
+\begin_layout Plain Layout
+
+% fontsize{8}{7} + multicols}{3}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+DMU Ch.6 State Uncertainty
+\end_layout
+
+\begin_layout Standard
+Because of sensor limitations or noise, the state might not be perfectly
+ observable
+\end_layout
+
+\begin_layout Standard
+Assumption in Ch.6: model is known
+\end_layout
+
+\begin_layout Standard
+
+\color magenta
+Known 
+\begin_inset Formula $T(s'\mid s,a),R(s,a),O(s,a)$
+\end_inset
+
+ but the environement is NOT fully observable
+\end_layout
+
+\begin_layout Subsection
+Formulation
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+POMDP: 
+\begin_inset Formula $<\mathcal{S},\mathcal{A},\mathcal{O},T,R,O>$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+MDP + set of observations 
+\begin_inset Formula $\mathcal{O}$
+\end_inset
+
+ + observation model 
+\begin_inset Formula $O$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[node distance=0.4cm, >=stealth'] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (A) [events, rectangle, scale=0.75] {$A_t$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (R) [events, diamond, scale=0.6, below = of A] {$R_t$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (S) [events, scale=0.75, below = of R] {$S_t$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (Snext) [events, circle, scale=0.75, right = of S] {$S_{t+1}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (O) [events, scale=0.75, color=magenta, below = of S] {$O_t$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (A) -- (R); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (S) -- (R); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (S) -- (Snext); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (S) -- (O); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (A) -- (Snext);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->, bend left, dotted] (S.west) to (A.west); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+The proba of observing 
+\begin_inset Formula $o$
+\end_inset
+
+ given state 
+\begin_inset Formula $s$
+\end_inset
+
+ is written
+\series bold
+ 
+\begin_inset Formula $\mathbf{O(o\mid s)}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+In some formulations, the observation can also depend on the action 
+\begin_inset Formula $a$
+\end_inset
+
+ , and so we can write 
+\series bold
+
+\begin_inset Formula $\mathbf{O(o\mid s,a)}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+The decision in a POMDP at time 
+\begin_inset Formula $t$
+\end_inset
+
+ can only be based on the history of observations 
+\begin_inset Formula $o_{1:t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Instead of keeping track of arbitrarily long histories, we keep track of
+ the belief state
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $b(s)$
+\end_inset
+
+ is the probability assigned to being in state 
+\begin_inset Formula $s$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+POMDP policy: maps belief states to actions 
+\begin_inset Formula $\mathbf{a=\pi(b)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+POMDP Policy Execution 
+\end_layout
+
+\begin_layout Itemize
+Execute action 
+\begin_inset Formula $a=\pi(b)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Observe 
+\begin_inset Formula $o$
+\end_inset
+
+ and reward 
+\begin_inset Formula $r$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Update belief: 
+\begin_inset Formula $b\gets UpdateBelief(b,a,o)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathcal{B}$
+\end_inset
+
+ is the set of all possible beliefs
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+ dicrete states 
+\begin_inset Formula $\Longrightarrow\mathcal{B\text{ is a subset of }\mathbb{R}}^{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+POMDP is a MDP over belief-states aka belief-state MDPs.
+ Solving belief-state MDPs is challenging bcz the state space is continuous.
+ ADP methods can be used.
+ But we can do better by taking advantage of the structure of the belief-state
+ MDP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Belief Updating
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Discrete State Filters (aka Histogram Filters)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $b$
+\end_inset
+
+ is a vector with proba for each state: 
+\begin_inset Formula $b_{i}=p(s_{i})$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+A POMDP Belief-Tree is represented below:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/pomdp-tree.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $b'(s')=P(s'\mid b,a,o)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+By Bayes Rule:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(s'\mid b,a,o)\propto P(o\mid s',b,a)\times P(s'\mid b,a)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(s'\mid b,a,o)\propto\text{Update step }\times\text{Prediction step}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+But 
+\begin_inset Formula $P(o\mid s',b,a)=P(o\mid s',a)=O(o\mid s',a)$
+\end_inset
+
+ as knowing the belief does not tell anything extra
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(s'\mid b,a,o)\propto O(o\mid s',a)\times P(s'\mid b,a)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+By Law of Total probability:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(s'\mid b,a)=\sum_{s}P(s',s\mid b,a)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(s'\mid b,a)=\sum_{s}P(s'\mid s,b,a)P(s\mid b,a)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(s'\mid b,a)=\sum_{s}P(s'\mid s,a)b(s)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+And finally:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbf{b'(s')\propto O(o\mid s',a)\times\sum_{s}T(s'\mid s,a)b(s)}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Prediction step:
+\series default
+ we are summing over all states that can lead to 
+\begin_inset Formula $s'$
+\end_inset
+
+ given the action 
+\begin_inset Formula $a$
+\end_inset
+
+ taken in state 
+\begin_inset Formula $s$
+\end_inset
+
+ .
+ We get a new 
+\begin_inset Quotes eld
+\end_inset
+
+prediction belief
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Update step:
+\series default
+ the 
+\begin_inset Quotes eld
+\end_inset
+
+prediction belief
+\begin_inset Quotes erd
+\end_inset
+
+ is weighted based on our measurement likelihood in state 
+\begin_inset Formula $s'$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pros
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cons
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathcal{O}(|S|^{2})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exact if 
+\begin_inset Formula $S$
+\end_inset
+
+ is discrete
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Approximations for 
+\begin_inset Formula $S\subset\mathbb{R}^{n}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $(s,a)\rightarrow s'$
+\end_inset
+
+ many cases where 
+\begin_inset Formula $T(s'\mid s,a)=0$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Complexity pretty close to 
+\begin_inset Formula $\mathcal{O}(|S|)\times2\text{ or }3$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{HistogramUpdateBelief}{$b,a,o$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $b' 
+\backslash
+gets $ zeros $(|S|)$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+For {$s' 
+\backslash
+gets 1 
+\backslash
+text{ to }|S|$ }
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $prediction=0$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+For {$s 
+\backslash
+gets 1 
+\backslash
+text{ to }|S|$ }
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+State $prediction+=T(s' 
+\backslash
+mid s,a) b(s)$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $b'(s')=O(o 
+\backslash
+mid s',a) 
+\backslash
+times prediction$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $b'
+\backslash
+gets b' / sum(b')$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return $b'$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Kalman Filters 
+\end_layout
+
+\begin_layout Plain Layout
+Linear Gaussian Models in 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ + Bayes Rule: that's all
+\end_layout
+
+\begin_layout Plain Layout
+Dynamics: has to be a linear function
+\end_layout
+
+\begin_layout Plain Layout
+Noise: can only be Gaussian
+\end_layout
+
+\begin_layout Plain Layout
+Parametric method: 
+\begin_inset Formula $\mu,\Sigma$
+\end_inset
+
+ with just  
+\begin_inset Formula $2n$
+\end_inset
+
+ parameters 
+\end_layout
+
+\begin_layout Plain Layout
+Linearize with EKF
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Prediction step: 
+\series default
+dynamics + noise.
+ Uncertainty grows.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Update step:
+\series default
+ measurement is incorporated.
+ Uncertainty is reduced
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pros
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cons
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FAST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Linearization can be hard
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ easy to handle
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Multimodalities
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Particle Filters without rejection
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Prediction step: 
+\series default
+dynamics + noise.
+ This leads to particles that are more spread out.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Update step:
+\series default
+ measurement is incorporated.
+ You weight the particles by the LLH of the observation that you end up
+ receiving and then you resample from these weighted particles.
+ This leads to particles that are more condensed.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pros
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cons
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Efficient: 
+\begin_inset Formula $\mathcal{O}(|b|)$
+\end_inset
+
+ complexity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Non Gaussian beliefs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{ParticleUpdateBelief}{$b,a,o$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $b' 
+\backslash
+gets 0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+For {$i
+\backslash
+gets 1 
+\backslash
+text{ to }|b|$ }
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $s'_i 
+\backslash
+sim G(s_i,a)$ 
+\backslash
+Comment{prediction step: shift + noise}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $w_i=O(o 
+\backslash
+mid s'_i,a)$ 
+\backslash
+Comment{observation weight}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+For {$i
+\backslash
+gets 1 
+\backslash
+text{ to }|b|$ }
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State Sample a new particle $k$ with proba $
+\backslash
+propto w_k$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State Add $s'_k$ to $b'$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return $b'$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Exact Solution Methods
+\end_layout
+
+\begin_layout Standard
+For finite horizons: Value function is Piece Wise Linear Convex (proof by
+ induction)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Convex:
+\series default
+ if you take any 2 points on that function and draw a segment, the function
+ of interest is below or equal this segment (you may check that this is
+ equivalent to 
+\begin_inset Formula $f''\geq0$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $f'$
+\end_inset
+
+ always increasing)
+\end_layout
+
+\begin_layout Standard
+A set of alpha-vectors 
+\begin_inset Formula $\mathbf{\mathbf{\alpha_{a}}}$
+\end_inset
+
+ represents a set of hyperplans
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{\alpha_{a}}:$
+\end_inset
+
+ is a vector of size 
+\begin_inset Formula $|S|$
+\end_inset
+
+ which captures value of action 
+\begin_inset Formula $a$
+\end_inset
+
+ in the different states 
+\begin_inset Formula $s$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Value function: is equal to the upper part of all these hyperplans
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Graphics
+	filename img/pwlc-partition.gif
+	scale 20
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/horizon2-transform-b3.gif
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Policy: is compactly represented by a set of alpha-vectors
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+POMDP Value Iteration 
+\end_layout
+
+\begin_layout Plain Layout
+vectors are in bold: 
+\begin_inset Formula $\mathbf{v}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $1$
+\end_inset
+
+ step horizon: 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $U^{*}(b)=\underset{a}{max}\;\sum_{s}R(s,a)b(s)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $U^{*}(b)=\underset{a}{max}\;\mathbf{\alpha_{a}^{T}b}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $t$
+\end_inset
+
+ step: 
+\begin_inset Formula $U$
+\end_inset
+
+ defined by a set 
+\begin_inset Formula $\Gamma_{t}$
+\end_inset
+
+ of 
+\begin_inset Formula $\mathbf{\alpha_{a}^{t}}$
+\end_inset
+
+ vectors
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $\mathbf{\alpha_{a}^{t}}$
+\end_inset
+
+ 
+\series default
+not optimal for any belief state are discarded
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $t+1$
+\end_inset
+
+ step: 
+\begin_inset Formula $U$
+\end_inset
+
+ defined by a new set 
+\begin_inset Formula $\Gamma_{t+1}$
+\end_inset
+
+ of 
+\begin_inset Formula $\mathbf{\alpha_{a}^{t+1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Policy Tree
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/policy-tree.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+How many recursions ?
+\end_layout
+
+\begin_layout Plain Layout
+The number of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+-vectors grows exponentially in the number of observations at each iteration
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $|\Gamma_{t+1}|=|A|\times|\Gamma_{t}|^{|\mathcal{O}|}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Each new 
+\begin_inset Formula $\alpha$
+\end_inset
+
+-vector requires computation time in 
+\begin_inset Formula $\mathcal{O}(|O|\times|S|^{2})$
+\end_inset
+
+ (cf 14-ExactPOMDPMethods.ipynb
+\series bold
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+Conditional Plans (DMU 6.3.2) 
+\end_layout
+
+\begin_layout Plain Layout
+We compute the Utility of a Policy Tree in a top down way.
+ We recurse down until we reach the horizon.
+ When we reach horizon: the utility is 
+\begin_inset Formula $0$
+\end_inset
+
+ .
+ So we can solve 
+\begin_inset Formula $U^{P}(s)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\boxed{U^{P}(s)=R(s,a)+\gamma\sum_{s'}T(s'\mid s,a)\sum_{o}O(o\mid s',a)U^{P(o)}(s')}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P$
+\end_inset
+
+: a policy tree with 
+\series bold
+root action 
+\begin_inset Formula $a$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(o)$
+\end_inset
+
+: subplan (subtree) associated with observation 
+\begin_inset Formula $o$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+We can then compute the expected Utility associated with a belief state
+ as:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\boxed{U^{P}(b)=\sum_{s}U^{P}(s)b(s)}$
+\end_inset
+
+ which is a dot product
+\end_layout
+
+\begin_layout Plain Layout
+We can use the 
+\begin_inset Formula $\alpha_{P}$
+\end_inset
+
+ vectors to represent the vectorized version of 
+\begin_inset Formula $U^{P}$
+\end_inset
+
+ e.g.
+ for a 2 states-space 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbf{\alpha_{P}}=\begin{bmatrix}U^{P}(s_{1}) & U^{P}(s_{2})\end{bmatrix}^{T}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{b}=\begin{bmatrix}P(s_{1}) & P(s_{2})\end{bmatrix}^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\boxed{U^{P}(b)=\mathbf{\alpha_{P}^{T}\:b}}$
+\end_inset
+
+ (dot product with the belief vector)
+\end_layout
+
+\begin_layout Plain Layout
+If we maximize over the space of all possible plans up to the planning horizon,
+ then we can fin
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\boxed{U^{*}(b)=\underset{P}{max}\;\mathbf{\alpha_{P}^{T}\:b}}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Hence the finite horizon optimal value function is PWLC.
+ We simply execute the action at the root node of the plan that maximizes
+ 
+\begin_inset Formula $\mathbf{\alpha_{P}^{T}\:b}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is generally infeasible to enumerate every possible h-step plan to find
+ the one that maximizes above equation from the current belief state.
+ We have 
+\begin_inset Formula $|A|^{\frac{|O|^{h}-1}{|O|-1}}$
+\end_inset
+
+ h-step plans.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\shape italic
+Value Iteration:
+\series default
+\shape default
+ iterate over all the one-step plans and toss out the plans that are not
+ optimal for any belief state.
+ And so on ...
+ Discard 
+\series bold
+\shape italic
+dominated
+\series default
+\shape default
+ plans along the way...
+\end_layout
+
+\begin_layout Standard
+Notes:
+\end_layout
+
+\begin_layout Itemize
+Only in the 1st step horizon you have 1 action per alpha vector.
+ With an arbitrary number of steps you could have more than 1
+\end_layout
+
+\begin_layout Itemize
+Question at 1H16 W7 last video: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For finite horizons problems, alpha vectors are different for each time
+ step.
+ They change with time
+\end_layout
+
+\begin_layout Itemize
+If you represent your policy as a set of 
+\begin_inset Quotes eld
+\end_inset
+
+the same
+\begin_inset Quotes erd
+\end_inset
+
+ (I guess) alpha vectors, that is kind of assuming that you have an infinite
+ horizon problem, because your policy does not change with time.
+ So we have a stationnary policy w.r.t.
+ our belief states (but of course the belief state itself is changing over
+ time)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Usually we are interested by stationnary policies w.r.t.
+ our belief state
+\end_layout
+
+\begin_layout Itemize
+How to adress finite horizon pbs: e.g.
+ add time to your state space or use a tree based representation
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+14-ExactPOMDPMethods.ipynb
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Backup UpdateAlphas(
+\begin_inset Formula $\mathbf{b,alphas}$
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha_{a}^{P}(s)=R(s,a)+\gamma\;\sum_{s'}T(s'\mid s,a)\sum_{o}O(o\mid s',a)\alpha_{ao}^{P(o)}(s')$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P$
+\end_inset
+
+: a policy tree with 
+\series bold
+root action 
+\begin_inset Formula $a$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(o)$
+\end_inset
+
+: subplan (subtree) associated with observation 
+\begin_inset Formula $o$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+We have 
+\begin_inset Formula $\alpha_{ao}^{P(o)}$
+\end_inset
+
+ computed this way:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathbf{b_{ao}}=UpdateBelief(b,a,o)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+E.g.
+ for a 2 states-space 
+\begin_inset Formula $\mathbf{b_{ao}}=\begin{bmatrix}P(s_{1}) & P(s_{2})\end{bmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathbf{\alpha_{ao}^{P(o)}}=\underset{\alpha_{a}^{P(o)}}{argmax}\;\mathbf{\mathbf{\alpha_{a}^{P(o)}b}_{ao}}$
+\end_inset
+
+ which means we pick the highest piece-wise linear part of 
+\begin_inset Formula $U$
+\end_inset
+
+ w.r.t.
+ our new belief
+\end_layout
+
+\begin_layout Plain Layout
+With 2 actions, every 
+\begin_inset Formula $UpdateAlphas$
+\end_inset
+
+ adds 2 
+\begin_inset Formula $\alpha$
+\end_inset
+
+-vectors
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+How to call UpdateAlphas(
+\begin_inset Formula $b,alphas$
+\end_inset
+
+) ?
+\end_layout
+
+\begin_layout Plain Layout
+Root belief is: 
+\begin_inset Formula $b_{0}^{(0)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Let say current beliefs are: 
+\begin_inset Formula $b_{1}^{(1)},b_{2}^{(1)},b_{3}^{(1)},b_{4}^{(1)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+For every current belief add e.g.
+ 4 children beliefs (2 actions x 2 observations) 
+\begin_inset Formula $\Longrightarrow b_{1}^{(2)},\ldots,b_{16}^{(2)}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Then for all 16 children:
+\end_layout
+
+\begin_layout Itemize
+UpdateAlphas
+\begin_inset Formula $(b_{i}^{(2)},alphas)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+UpdateAlphas
+\begin_inset Formula $(b_{parent_{i}}^{(1)},alphas)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+UpdateAlphas
+\begin_inset Formula $(b_{0}^{(0)},alphas)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+The tree grows exponentially
+\end_layout
+
+\begin_layout Plain Layout
+Prune the dominated alpha-vectors to limit the growth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Offline Methods
+\end_layout
+
+\begin_layout Standard
+We start first with two very loose approximation of POMDP solution: QMDP
+ and FIB
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+QMDP
+\end_layout
+
+\begin_layout Plain Layout
+We simply take an expectation of the MDP's Q-values, so we include our current
+ state uncertainty, but then the MDP solution has no state uncertainty in
+ it.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\pi^{QMDP}(b)=\underset{a}{argmax}\;\sum_{s}b(s)Q(s,a)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+1 alpha-vector per action based on 
+\begin_inset Formula $Q(s,a)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Pre-computed offline under full observability assumption: 
+\begin_inset Formula $Q_{MDP}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+It assumes uncertainty disappears at the next time step
+\end_layout
+
+\begin_layout Plain Layout
+Works well in practice when you do not have to take info gathering actions
+\end_layout
+
+\begin_layout Plain Layout
+Then approximate online: 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $U(b)=\underset{a}{max}\;\mathbf{\alpha_{a}^{T}b}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Optimal action: 
+\begin_inset Formula $\underset{a}{argmax}\;\mathbf{\alpha_{a}^{T}b}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $b'=BeliefUpdate(b,a,o)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Algo: VI on every 
+\begin_inset Formula $\alpha_{a}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Init: 
+\begin_inset Formula $\alpha_{a}^{(0)}(s)$
+\end_inset
+
+= 0
+\end_layout
+
+\begin_layout Plain Layout
+Iter: 
+\begin_inset Formula $\alpha_{a}^{(k+1)}(s)=R(s,a)+\gamma\;\sum_{s'}T(s'\mid s,a)\underset{a'}{\;max}\;\alpha_{a'}^{(k)}(s')$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+VI iter until CV 
+\end_layout
+
+\begin_layout Plain Layout
+Complexity: 
+\begin_inset Formula $\mathcal{O}(|A|^{2}|S|^{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Properties:
+\end_layout
+
+\begin_layout Itemize
+QMDP policy is suboptimal
+\end_layout
+
+\begin_layout Itemize
+Upper Bound on U:  
+\begin_inset Formula $U^{*}(\mathbf{b})\leq\underset{a}{max}\;\mathbf{\alpha_{a}^{T}b\text{ for all }b}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You should try to understand intuitively why QMDP is an overestimate.
+ If we know our state, we are going to do better than if we only have a
+ belief, or distribution over states.
+ State uncertainty makes it harder to have a good solution.
+ Because we are using the MDP solution, we are not accounting for the fact
+ that we will have state uncertainty (which will likely make performance
+ worse).
+\end_layout
+
+\begin_layout Standard
+The lack of the observation function is related to QMDP's being an overestimate.
+ One way to derive QMDP is to switch a sum and max operator in the Bellman
+ update, which makes the updated value an overestimate.
+ Because of this switch, the observation function falls out of the update
+ equation.
+ It's a bit more complex than this and if you are really interested, you
+ should look up Hauskrecht's paper, "Value-function approximations for partially
+ observable Markov decision processes.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+FIB
+\end_layout
+
+\begin_layout Plain Layout
+Same idea as QMDP but takes into account partial observability
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha_{a}^{(k+1)}(s)=R(s,a)+\gamma\;\sum_{o}\sum_{s'}O(o\mid s',a)T(s'\mid s,a)\underset{a'}{\;max}\;\alpha_{a'}^{(k)}(s')$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha_{a}^{(k+1)}(s)=R(s,a)+\gamma\;\sum_{o}\underset{a'}{max}\sum_{s'}O(o\mid s',a)T(s'\mid s,a)\;\alpha_{a'}^{(k)}(s')$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Complexity: 
+\begin_inset Formula $\mathcal{O}(|A|^{2}|S|^{2}|O|)$
+\end_inset
+
+ still polynomial
+\end_layout
+
+\begin_layout Plain Layout
+Upper Bound on the value fct: 
+\begin_inset Formula $U^{*}\leq FIB\leq QMDP$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+PBVI
+\end_layout
+
+\begin_layout Plain Layout
+Major advance 20 years ago
+\end_layout
+
+\begin_layout Plain Layout
+Enabled to solve interesting problems
+\end_layout
+
+\begin_layout Plain Layout
+Key idea: 
+\end_layout
+
+\begin_layout Itemize
+Backup 
+\begin_inset Formula $n$
+\end_inset
+
+ alpha vectors associated with a point in the belief space
+\end_layout
+
+\begin_layout Itemize
+Then use the 
+\begin_inset Formula $n$
+\end_inset
+
+ alpha-vectors to approximate the value fct anywhere in the belief space
+ via 
+\begin_inset Formula $U^{\Gamma}(\mathbf{b})=\underset{\alpha\in\Gamma}{max}\;\mathbf{\mathbf{\alpha^{T}b}}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Algo:
+\end_layout
+
+\begin_layout Itemize
+Init: 
+\begin_inset Formula $B=\{b_{1},\ldots,b_{n}\},\Gamma=\{\alpha_{1},\ldots,\alpha_{n}\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ is used to represent the value fct
+\end_layout
+
+\begin_layout Itemize
+Init the 
+\begin_inset Formula $|S|$
+\end_inset
+
+ components of all 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ to a lower bound value 
+\begin_inset Formula $\underline{U}(s)=\underset{a}{max}\;\sum_{t}\gamma^{t}\underset{s}{min}\;R(s,a)=\frac{1}{1-\gamma}\:\underset{a}{max}\:\underset{s}{min}\;R(s,a)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Iter: 
+\begin_inset Formula $\alpha_{i}\gets BackupBelief(b_{i},\Gamma)$
+\end_inset
+
+ until CV
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{BackupBelief}{$b,
+\backslash
+Gamma$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+For {$a 
+\backslash
+in A$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+For {$o 
+\backslash
+in O$}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+State $b' 
+\backslash
+gets 
+\backslash
+Call {UpdateBelief}{b,a,o}$
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+State $
+\backslash
+alpha_{a,o} 
+\backslash
+gets argmax_{
+\backslash
+alpha 
+\backslash
+in 
+\backslash
+Gamma} 
+\backslash
+: 
+\backslash
+alpha^T b'$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+For {$s 
+\backslash
+in S$}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+State $
+\backslash
+alpha_a(s) 
+\backslash
+gets R(s,a) + 
+\backslash
+gamma 
+\backslash
+: 
+\backslash
+sum_{s',o}O(o 
+\backslash
+mid s',a) T(s' 
+\backslash
+mid s,a) 
+\backslash
+alpha_{a,o}(s')$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $
+\backslash
+alpha 
+\backslash
+gets argmax_{
+\backslash
+alpha_a} 
+\backslash
+: 
+\backslash
+alpha_a^Tb$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return $
+\backslash
+alpha$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Belief Points Selection
+\end_layout
+
+\begin_layout Plain Layout
+2 general principles:
+\end_layout
+
+\begin_layout Itemize
+Some kind of exploration strategy to choose some likely reachable belief
+ points
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+start from b
+\end_layout
+
+\begin_layout Itemize
+choose a random action
+\end_layout
+
+\begin_layout Itemize
+sample s, s', o
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $b'=UpdateBelief(b,a,o)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+You want them to be spaced out so that approximation holds throughout the
+ space
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+same as above but with all possible actions
+\end_layout
+
+\begin_layout Itemize
+resulting in 
+\begin_inset Formula $|A|$
+\end_inset
+
+ candidate new beliefs: 
+\begin_inset Formula $b_{a}(s)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Select and add the 1 that is most spaced out: 
+\begin_inset Formula $b'=argmax_{b_{a}}\;min_{b\in B}\;\sum_{s}|b(s)-b_{a}(s)|$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Online Methods
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Lookahead with Approximate Value Function
+\end_layout
+
+\begin_layout Plain Layout
+Todo ...
+ We compute the Utility of a Policy Tree in a top down way.
+ We recurse down until we reach the horizon.
+ When we reach horizon: the utility is 
+\begin_inset Formula $0$
+\end_inset
+
+ .
+ So we can solve 
+\begin_inset Formula $U^{P}(s)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Forward Search
+\end_layout
+
+\begin_layout Plain Layout
+Todo ...
+ We compute the Utility of a Policy Tree in a top down way.
+ We recurse down until we reach the horizon.
+ When we reach horizon: the utility is 
+\begin_inset Formula $0$
+\end_inset
+
+ .
+ So we can solve 
+\begin_inset Formula $U^{P}(s)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Branch and Bound
+\end_layout
+
+\begin_layout Plain Layout
+Todo ...
+ We compute the Utility of a Policy Tree in a top down way.
+ We recurse down until we reach the horizon.
+ When we reach horizon: the utility is 
+\begin_inset Formula $0$
+\end_inset
+
+ .
+ So we can solve 
+\begin_inset Formula $U^{P}(s)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Monte Carlo Tree Search
+\end_layout
+
+\begin_layout Plain Layout
+Todo ...
+ We compute the Utility of a Policy Tree in a top down way.
+ We recurse down until we reach the horizon.
+ When we reach horizon: the utility is 
+\begin_inset Formula $0$
+\end_inset
+
+ .
+ So we can solve 
+\begin_inset Formula $U^{P}(s)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{multicols}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

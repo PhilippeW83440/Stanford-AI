@@ -1,0 +1,4826 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extarticle
+\begin_preamble
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{calc}
+\usepackage{color,graphicx,overpic}
+\usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
+\usepackage{ifthen}
+\usepackage{multicol}
+\usepackage{titlesec}
+\usepackage{wrapfig}
+
+\titlespacing*{\section}{0pt}{0.5em}{0em}
+\titlespacing*{\subsection}{0pt}{0.5em}{0em}
+\titlespacing*{\subsubsection}{0pt}{0.5em}{0em}
+\titleformat{\section}{\vspace{1em}\titlerule\normalfont\fontsize{7}{7}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\fontsize{6}{6}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsubsection}{\titlerule\normalfont\fontsize{6}{6}}{\thesection}{1em}{}
+\titlespacing*{\labeling}{0pt}{0em}{0em}
+
+\let\stdboxed\boxed
+\renewcommand{\boxed}[1]{
+  \setlength{\fboxsep}{0.05em}
+  \stdboxed{#1}
+}
+
+\setlist{nolistsep,leftmargin=*}
+
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\columnsep}{10pt}
+
+\newtheorem{example}[section]{Example}
+
+\let\textquotedbl="
+\def\ci{\perp\!\!\!\perp}
+
+\raggedright
+
+\newcommand{\mytitle}[2]{
+  \begin{center}\small{#1} -- \scriptsize{#2}\end{center}
+}
+
+
+\hyphenpenalty=100
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows}
+\usetikzlibrary{er,positioning}
+\tikzset{
+    events/.style={ellipse, draw, align=center},
+}
+
+\usepackage{graphicx}
+\usetikzlibrary{fit}
+\usetikzlibrary{bayesnet}
+\usepackage{pgfplots}
+\end_preamble
+\options 3pt
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman "times" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification false
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.25in
+\topmargin 0.25in
+\rightmargin 0.25in
+\bottommargin 0.25in
+\secnumdepth -2
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle empty
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fontsize{8}{7}
+\backslash
+selectfont
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mytitle{
+\backslash
+textbf{Decision Making Under Uncertainty Ch2-Ch3 Stanford AA228 course notes}}{
+\backslash
+textbf{Philippe Weingertner}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{multicols}{3}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Probabilistic models
+\end_layout
+
+\begin_layout Subsection
+Probability and BN representation
+\end_layout
+
+\begin_layout Itemize
+Definition of Conditional Probability: 
+\begin_inset Formula $P(A\mid B)=\frac{P(A,B)}{P(B)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Law of Total Probability: 
+\begin_inset Formula $P(A)=\underset{B\in\mathcal{B}}{\sum}P(A,B)=\underset{B\in\mathcal{B}}{\sum}P(A\mid B)P(B)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+LTP with CP: 
+\begin_inset Formula $P(A\mid C)=\underset{B\in\mathcal{B}}{\sum}P(A,B\mid C)=\underset{B\in\mathcal{B}}{\sum}P(A\mid B,C)P(B\mid C)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Bayes Rule 
+\begin_inset Formula $P(A\mid B)=\frac{P(B\mid A)P(A)}{P(B)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\begin{array}{cc}
+\end{array}$
+\end_inset
+
+
+\begin_inset Formula $\begin{array}{cc}
+\phi(x)=\frac{1}{\sqrt{2\pi}}\exp\left(-x^{2}/2\right) & \Phi(x)=\int_{-\infty}^{x}\phi(x)dx\end{array}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $p(\omega)=\mathcal{N}(\omega\mid\mu,\sigma^{2})=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\left(\frac{\omega-\mu}{\sigma}\right)^{2}}=\frac{1}{\sigma}\phi\left(\frac{\omega-\mu}{\sigma}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Truncated Gaussian 
+\begin_inset Formula $\mathcal{N}(\omega\mid\mu,\sigma^{2},a,b)=\frac{\mathcal{N}(\omega\mid\mu,\sigma^{2})}{\Phi\left(\frac{b-\mu}{\sigma}\right)-\Phi\left(\frac{a-\mu}{\sigma}\right)}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathcal{N}(s\mid\mu,\Sigma)=\frac{1}{\left(2\pi\right)^{k/2}\left|\Sigma\right|^{1/2}}\exp\left(-\frac{1}{2}\left(s-\mu\right)^{T}\Sigma^{-1}\left(s-\mu\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+BN is a compact representation of joint distribution
+\end_layout
+
+\begin_layout Itemize
+
+\color red
+\begin_inset Formula $\boxed{P(E\mid B,S)\text{ has }(n_{E}-1)\times n_{B}\times n_{S}\text{ independant params}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+BN chain rule: 
+\begin_inset Formula $P(x_{1},\ldots,x_{n})=\prod_{i=1}^{n}P(x_{i}\mid pa_{x_{i}})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Conditional Independence
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $(A\perp B\mid C)\Longleftrightarrow P(A,B\mid C)=P(A\mid C)P(B\mid C)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $(A\perp B\mid C)\Longleftrightarrow P(A\mid C)=P(A\mid B,C)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+chain
+\series default
+ 
+\begin_inset Formula $X\rightarrow Y\rightarrow Z$
+\end_inset
+
+; 
+\series bold
+fork
+\series default
+ 
+\begin_inset Formula $X\leftarrow Y\rightarrow Z$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+inverted fork
+\series default
+ or 
+\series bold
+v-structure
+\series default
+ 
+\begin_inset Formula $X\rightarrow Y\leftarrow Z$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\color red
+v-structure
+\shape italic
+ 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ check evidence on Y descendants
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+on path of influence
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+chain, fork
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+v-structure
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+evidence
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+blocking
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+enabling
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $(A\perp B\mid\mathcal{C})$
+\end_inset
+
+ if all paths between A and B are d-seperated by 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\color red
+Of course 
+\begin_inset Formula $A\rightarrow B$
+\end_inset
+
+ means no possible d-sep between 
+\begin_inset Formula $A,B$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Markov Blanket of Q
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathcal{C}_{B}$
+\end_inset
+
+: the min set of nodes that d-separate a node from all other
+\end_layout
+
+\begin_layout Plain Layout
+If we observe all nodes in 
+\begin_inset Formula $\mathcal{C_{B}}$
+\end_inset
+
+ then 
+\begin_inset Formula $Q$
+\end_inset
+
+ is condit.
+ indep.
+ of the other nodes
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[node distance=0.4cm, >=stealth'] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (A) [events] {A};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (B) [events, right = of A] {B};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (C) [events, right = of B] {C};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (Q) [events, right = of C] {Q};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (N) [events, right = of Q] {N};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (K) [events, right = of N] {K};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (A) -- (B); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (B) -- (C); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (Q) -- (C); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (Q) -- (N); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (N) -- (K); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+!!! 
+\begin_inset Formula $B\rightarrow C\leftarrow Q$
+\end_inset
+
+ is a v-structure !!! 
+\end_layout
+
+\begin_layout Plain Layout
+Evidence in 
+\begin_inset Formula $C$
+\end_inset
+
+ enables the path of influence
+\end_layout
+
+\begin_layout Plain Layout
+Markov blanket of 
+\begin_inset Formula $Q$
+\end_inset
+
+: 
+\begin_inset Formula $N,C$
+\end_inset
+
+ because they are directly connected to Q 
+\end_layout
+
+\begin_layout Plain Layout
+But then, because of the v-structure, we enable a path of influence with
+ evidence in 
+\begin_inset Formula $C$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+So we have to add an evidence in 
+\begin_inset Formula $B$
+\end_inset
+
+ to block the path of influence
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ Markov Blanket of Q is 
+\begin_inset Formula $N,C,B$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Hybrid BN and Temporal Models
+\end_layout
+
+\begin_layout Standard
+Hybrid BN example: 
+\begin_inset Formula $P(W)P(M)P(C\mid W,M)P(D,C)$
+\end_inset
+
+ with 
+\begin_inset Formula $W,C$
+\end_inset
+
+ continuous
+\end_layout
+
+\begin_layout Itemize
+linear gaussian: 
+\begin_inset Formula $P(c\mid\omega,m)=\begin{cases}
+\mathcal{N}\left(c|\theta_{1}\omega+\theta_{2},\theta_{3}\right) & m^{0}\\
+\mathcal{N}\left(c|\theta_{4}\omega+\theta_{5},\theta_{6}\right) & m^{1}
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+logit model: 
+\begin_inset Formula $P(d^{1}\mid c)=\frac{1}{1+exp\left(-2\frac{c-\theta_{7}}{\theta_{8}}\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aircraft HMM example: 
+\begin_inset Formula $s_{t}=\left(h,\dot{h}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[node distance=0.2cm, >=stealth'] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (S0) [events] {$S_0$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (S1) [events, right = of S0] {$S_1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (S2) [events, right = of S1] {$S_2$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (S3) [right = of S2] {$...$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (O0) [events, below = of S0] {$O_0$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (O1) [events, below = of S1] {$O_1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (O2) [events, below = of S2] {$O_2$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (S0) -- (S1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (S1) -- (S2); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (S2) -- (S3); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (S0) -- (O0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (S1) -- (O1);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (S2) -- (O2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P(s_{t}\mid s_{t-1})=\mathcal{N}(s_{t}\mid Ms_{t-1}+b,\Sigma)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P(o_{t}\mid s_{t})=\mathcal{N}(o_{t}\mid\begin{bmatrix}1 & 0\end{bmatrix}s_{t},\Sigma)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color red
+\begin_inset Formula $S_{0}$
+\end_inset
+
+ has less parameters than 
+\begin_inset Formula $S_{i}\text{ for i\ensuremath{\geq1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Inference
+\end_layout
+
+\begin_layout Standard
+To find a distribution over some unobserved variables given a set of observed
+ variables.
+ It might be used when the structure and parameters of the Bayesian network
+ are known: e.g.
+ classification tasks, where you want to infer a class given a set of observatio
+ns, Kalman filtering ...
+\end_layout
+
+\begin_layout Standard
+Variables type: query (or unobserved), evidence (or observed) and hidden
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\begin{array}{ccc}
+\end{array}$
+\end_inset
+
+
+\series bold
+
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Inference for Classification
+\end_layout
+
+\begin_layout Plain Layout
+Predict a class given some observations
+\end_layout
+
+\begin_layout Plain Layout
+Radar ex.: observe speed + heading fluctuations
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[node distance=0.4cm, >=stealth'] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (C) [events, label=right:{Class}] {$C$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (Oi) [events, below = of C, label=right:{
+\backslash
+:Observed features}] {$O_i$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+plate [] {} {(Oi)} {$i=1:n$} ;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (C) -- (Oi); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Plate representation of a naive Bayes model
+\end_layout
+
+\begin_layout Plain Layout
+Naive: assume condit.
+ indep.
+ between all observations given our class
+\end_layout
+
+\begin_layout Plain Layout
+Prior 
+\begin_inset Formula $P(C)$
+\end_inset
+
+, Class-conditional distribution 
+\begin_inset Formula $P(O_{i}\mid C)$
+\end_inset
+
+, Posterior 
+\begin_inset Formula $P(C\mid O_{1:n})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(c\mid o_{1:n})=\frac{P(c,o_{1:n})}{P(o_{1:n})}\propto P(c)\prod_{i}P(o_{i}\mid c)$
+\end_inset
+
+ by BN chain rule
+\end_layout
+
+\begin_layout Plain Layout
+Normalized such that 
+\begin_inset Formula $\sum_{c}P(c\mid o_{1:n})=1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Inference for Temporal Models: HMM, Kalman Filter ...
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[node distance=0.2cm, >=stealth'] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (St) [events] {$s_t$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (Sprev) [events, left = of St] {$s_{t-1}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (Snext) [events, right = of St] {$s_{t+1}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (Ot) [events, below = of St] {$o_t$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (Oprev) [events, below = of Sprev] {$o_{t-1}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (Onext) [events, below = of Snext] {$o_{t+1}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (Sstart) [left = of Sprev] {$...$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (Send)   [right = of Snext] {$...$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (Sstart) -- (Sprev); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (Sprev) -- (St); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (St) -- (Snext); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (Snext) -- (Send); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (Sprev) -- (Oprev);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (St) -- (Ot);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (Snext) -- (Onext);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Filtering problem: 
+\begin_inset Formula $P(S_{t}\mid O_{0:t})$
+\end_inset
+
+ ?
+\end_layout
+
+\begin_layout Plain Layout
+By Bayes rule
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(s_{t}\mid o_{_{0:t}})=P(s_{t}\mid o_{t},o_{_{0:t-1}})\propto P(o_{t}\mid s_{t},o_{_{0:t-1}})P(s_{t}\mid o_{_{0:t-1}})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+By d-sep 
+\begin_inset Formula $(O_{t}\perp O_{0:t-1}\mid S_{t})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(o_{t}\mid s_{t},o_{_{0:t-1}})=P(o_{t}\mid s_{t})$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(s_{t}\mid o_{_{0:t}})\propto P(o_{t}\mid s_{t})P(s_{t}\mid o_{_{0:t-1}})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+By the Law of Total Probability over 
+\begin_inset Formula $s_{t-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(s_{t}\mid o_{_{0:t}})\propto P(o_{t}\mid s_{t})\sum_{s_{t-1}}P(s_{t},s_{t-1}\mid o_{_{0:t-1}})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+By the definition of conditional probability
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(s_{t}\mid o_{_{0:t}})\propto P(o_{t}\mid s_{t})\sum_{s_{t-1}}P(s_{t}\mid s_{t-1},o_{_{0:t-1}})P(s_{t-1}\mid o_{_{0:t-1}})$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+By d-sep 
+\begin_inset Formula $(S_{t}\perp O_{0:t-1}\mid S_{t-1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(s_{t}\mid s_{t-1},o_{_{0:t-1}})=P(s_{t}\mid s_{t-1})$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbf{P(s_{t}\mid o_{_{0:t}})\propto P(o_{t}\mid s_{t})\sum_{s_{t-1}}P(s_{t}\mid s_{t-1})P(s_{t-1}\mid o_{_{0:t-1}})}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+With continuous variables replace 
+\begin_inset Formula $\sum$
+\end_inset
+
+ with 
+\begin_inset Formula $\int$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Our known model is:
+\end_layout
+
+\begin_layout Itemize
+Observation model: 
+\begin_inset Formula $P(o_{t}\mid s_{t})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+State transition model: 
+\begin_inset Formula $P(s_{t}\mid s_{t-1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+So we get a 
+\series bold
+recursive formula
+\series default
+ about our belief 
+\begin_inset Formula $b_{t}(s)$
+\end_inset
+
+ based on all possible previous states belief 
+\begin_inset Formula $b_{t-1}(s')$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Cf algorithm below with stationary state transition distrib and stationary
+ observation distrib (just to reduce typing subscripts...)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Recursive Bayesian Estimation
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{RecursiveBayesianEstimation}{} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $b_0(s) 
+\backslash
+gets P(o_0 
+\backslash
+mid s)P(s_0) 
+\backslash
+text{ for all }s$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $
+\backslash
+text{Normalize }b_0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+For{$t 
+\backslash
+gets 1
+\backslash
+text{ to }
+\backslash
+infty$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $b_t(s) 
+\backslash
+gets P(o_{t}
+\backslash
+mid s)
+\backslash
+sum_{s'}P(s 
+\backslash
+mid s')b_{t-1}(s')
+\backslash
+text{ for all s}$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $
+\backslash
+text{Normalize }b_t$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Inference Simplifications
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[node distance=0.4cm, >=stealth'] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (A) [events] {A};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (B) [events, right = of A] {B};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (C) [events, right = of B] {C};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (D) [events, right = of C] {D};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (E) [events, right = of D] {E};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (A) -- (B); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (B) -- (C); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (D) -- (E);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Of course 
+\begin_inset Formula $A,B,C$
+\end_inset
+
+ independant from 
+\begin_inset Formula $D,E$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Exact Inference
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[node distance=0.4cm, >=stealth'] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (A) [events] {A};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (C) [events, below right = of A] {C};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (B) [events, above right = of C] {B};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (D) [events, right = of C] {D};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (E) [events, right = of D] {E};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (A) -- (C); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (B) -- (C); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (B) -- (D); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (D) -- (E); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(a^{1}\mid b^{1},d^{1})=\frac{P(a^{1},b^{1},d^{1})}{P(b^{1},d^{1})}$
+\end_inset
+
+ by definiton of Cond Prob
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(a^{1},b^{1},d^{1})=\sum_{c}\sum_{e}P(a^{1},b^{1},c,d^{1},e)$
+\end_inset
+
+ by Law of Tot Prob
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(a^{1},b^{1},c,d^{1},e)=P(a^{1})\mathbf{P(b^{1})P(d^{1}\mid b^{1})}P(c\mid a^{1},b^{1})P(e\mid d)$
+\end_inset
+
+ by BN
+\end_layout
+
+\begin_layout Plain Layout
+We sum over unobserved variables
+\end_layout
+
+\begin_layout Plain Layout
+4 summations for numerator
+\end_layout
+
+\begin_layout Plain Layout
+8 summations for denominator (but 
+\series bold
+simplification
+\series default
+ here)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Exact Inference with Variables Elimination
+\series default
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Idea: convert all your conditional proba tables into regular tables
+\end_layout
+
+\begin_layout Plain Layout
+Question: 
+\begin_inset Formula $P(B\mid d^{1},e^{1})$
+\end_inset
+
+ on previous BN ? 
+\begin_inset Formula $B$
+\end_inset
+
+: query variable
+\end_layout
+
+\begin_layout Plain Layout
+Tables: 
+\begin_inset Formula $T_{1}(A),T_{2}(B),T_{3}(A,B,C),T_{4}(B,D),T_{5}(D,E)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+
+\series bold
+Step1: use evidences
+\series default
+ and drop all the rows that are inconsistent with the evidences.
+ Example with 
+\begin_inset Formula $d^{1},e^{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longrightarrow T_{1}(A),T_{2}(B),T_{3}(A,B,C),T_{4}(B)$
+\end_inset
+
+ (NB: 
+\begin_inset Formula $T_{5}$
+\end_inset
+
+ is just a number now)
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Step2: eliminate hidden variables
+\series default
+.
+ Choose an order e.g.
+ 
+\begin_inset Formula $A,C$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Choosing an optimal ordering (impacts #computations) is NP-hard
+\end_layout
+
+\begin_layout Plain Layout
+Eliminate A: 
+\begin_inset Formula $T_{5}(B,C)=\sum_{a}T_{1}(a)T_{3}(a,B,C)$
+\end_inset
+
+ we get a new table where the per row probability is updated (by product
+ and sum of previous probabilities)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longrightarrow T_{2}(B),T_{4}(B),T_{5}(B,C)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Eliminate C: 
+\begin_inset Formula $T_{6}(B)=\sum_{c}T_{5}(B,C)$
+\end_inset
+
+ we get a new table where the per row probability is updated (by sum of
+ previous probabilities)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longrightarrow T_{2}(B),T_{4}(B),T_{6}(B)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Step3: multiply and normalize
+\series default
+ the resulting table to get 
+\begin_inset Formula $T(B)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Complexity of Exact Inference
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\shape italic
+P
+\series default
+\shape default
+: pbs can be solved in polynomial time 
+\end_layout
+
+\begin_layout Plain Layout
+complexity 
+\begin_inset Formula $\propto n^{c}$
+\end_inset
+
+ with 
+\begin_inset Formula $n$
+\end_inset
+
+ size of inputs and 
+\begin_inset Formula $c$
+\end_inset
+
+ a constant
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\shape italic
+NP
+\series default
+\shape default
+: pbs whose solutions can be verified in polynomial time
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\shape italic
+NP-complete
+\series default
+\shape default
+: all pbs 
+\begin_inset Formula $X$
+\end_inset
+
+ in NP for which it is possible to reduce any other NP pb 
+\begin_inset Formula $Y$
+\end_inset
+
+ to 
+\begin_inset Formula $X$
+\end_inset
+
+ in polynomial time
+\end_layout
+
+\begin_layout Plain Layout
+Every NP pb can be reduced (transformed) to 3SAT
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\shape italic
+NP-hard
+\series default
+\shape default
+: a pb 
+\begin_inset Formula $X$
+\end_inset
+
+ is NP-hard, if there is an NP-complete pb 
+\begin_inset Formula $Y$
+\end_inset
+
+ such that 
+\begin_inset Formula $Y$
+\end_inset
+
+ is reducible to 
+\begin_inset Formula $X$
+\end_inset
+
+ in polynomial time
+\end_layout
+
+\begin_layout Plain Layout
+3SAT can be transformed to BN inference => BN inference is at least as hard
+ as 3SAT
+\end_layout
+
+\begin_layout Plain Layout
+3SAT problem is NP-complete and we can easily show that inference in Bayesian
+ networks is at least this hard.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ 
+\series bold
+Inference in Bayesian networks is NP-hard
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ do not waste time looking for an efficient exact inference algo and focus
+ on approximate inference methods
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Approximate Inference
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Topological sort:
+\shape default
+ of nodes in a DAG is an ordered list s.t.
+ if there is an edge 
+\begin_inset Formula $A\rightarrow B$
+\end_inset
+
+ , then 
+\begin_inset Formula $A$
+\end_inset
+
+ comes before 
+\begin_inset Formula $B$
+\end_inset
+
+ in the list: the parents of some node 
+\begin_inset Formula $A$
+\end_inset
+
+ always appear before 
+\begin_inset Formula $A)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Once we have a topological sort, we can begin sampling from the conditional
+ probability distributions: we sample from the parents of a node before
+ sampling from the node itself
+\end_layout
+
+\begin_layout Plain Layout
+A topological sort always exist but may not be unique
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[node distance=0.4cm, >=stealth'] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (E) [events] {E};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (B) [events, above left = of E] {B};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (S) [events, above right = of E] {S};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (D) [events, below left = of E] {D};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (F) [events, below right = of E] {F};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (B) -- (E); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (S) -- (E); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (E) -- (D); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (E) -- (F); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Direct Sampling:
+\end_layout
+
+\begin_layout Plain Layout
+MC estimation: sample from the distribution encoded by the joint distrib
+\end_layout
+
+\begin_layout Plain Layout
+Step1: topological sort of the DAG
+\end_layout
+
+\begin_layout Plain Layout
+Step2: iterate through the topological sort and sample from cond probs
+\end_layout
+
+\begin_layout Plain Layout
+Many, many times ...
+ Need lots of samples to get high quality estimate
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{c c c c c} 
+\end_layout
+
+\begin_layout Plain Layout
+
+ B & S & E & D & F 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  1 & 0 & 1 & 1 & 0 
+\backslash
+
+\backslash
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+  1 & 1 & 0 & 0 & 0 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  1 & 0 & 1 & 1 & 0 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  0 & 0 & 1 & 1 & 0 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longrightarrow P(b^{1})=\frac{3}{4},P(b^{1}\mid d^{1})=\frac{2}{3},\ldots$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Likelihood Weighted Sampling:
+\end_layout
+
+\begin_layout Plain Layout
+How to use efficiently evidences ? e.g.
+ we observed 
+\begin_inset Formula $f^{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Fix 
+\begin_inset Formula $F$
+\end_inset
+
+ and weight the samples appropriately
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{c c c c c | c} 
+\end_layout
+
+\begin_layout Plain Layout
+
+ B & S & E & D & F & $
+\backslash
+omega$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  1 & 0 & 1 & 1 & $
+\backslash
+bold{1}$ & $P(f^1 
+\backslash
+mid e^1)=...$ 
+\backslash
+
+\backslash
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  0 & 1 & 1 & 1 & $
+\backslash
+bold{1}$ & $P(f^1 
+\backslash
+mid e^1)=...$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  0 & 1 & 0 & 1 & $
+\backslash
+bold{1}$ & $P(f^1 
+\backslash
+mid e^0)=...$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longrightarrow P(b^{0}\mid f^{1})=\frac{P(f^{1}\mid e^{1})+P(f^{1}\mid e^{0})}{P(f^{1}\mid e^{1})+P(f^{1}\mid e^{1})+P(f^{1}\mid e^{0})}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+To find out 
+\begin_inset Formula $P(b^{0}\mid f^{1},d^{0})$
+\end_inset
+
+ , fix 
+\begin_inset Formula $f^{1}\text{ and }d^{0}$
+\end_inset
+
+ in the table and replace 
+\begin_inset Formula $P(f^{1}\mid e^{n})$
+\end_inset
+
+ with 
+\begin_inset Formula $P(f^{1}\mid e^{n})P(d^{0}\mid e^{n})$
+\end_inset
+
+ in the last column
+\end_layout
+
+\begin_layout Plain Layout
+
+\color red
+It has the advantage of not wasting samples: important when dealing with
+ rare events
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Gibbs Sampling:
+\end_layout
+
+\begin_layout Plain Layout
+MCMC idea: 
+\begin_inset Formula $\mathbb{E}[f(s)]_{\mathcal{P}}\approx\frac{1}{N}\sum_{N}f(s^{(i)})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Gibbs idea: generate posterior samples by sweeping through each var to sample
+ from its cond distrib with the remaining vars fixed to their current values
+\end_layout
+
+\begin_layout Plain Layout
+Any ordering can be used, next samples depends probabistically on the current
+ sample BUT CV at the limit
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $X_{1},X_{2},X_{3}\text{ with prio }x_{1}^{(0)},x_{2}^{(0)},x_{3}^{(0)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $x_{1}^{(i)}\sim P(X_{1}=x_{1}\mid X_{2}=x_{2}^{(i-1)},X_{3}=x_{3}^{(i-1)})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $x_{2}^{(i)}\sim P(X_{2}=x_{2}\mid X_{1}=x_{1}^{(i)},X_{3}=x_{3}^{(i-1)})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $x_{3}^{(i)}\sim P(X_{3}=x_{3}\mid X_{1}=x_{1}^{(i)},X_{2}=x_{2}^{(i)})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Two problems:
+\end_layout
+
+\begin_layout Itemize
+Burn-in period before CV: 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+discard early samples 
+\end_layout
+
+\begin_layout Itemize
+Samples are correlated: 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+thin the samples by only keeping every 
+\begin_inset Formula $k^{th}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Parameter Learning
+\end_layout
+
+\begin_layout Standard
+To find the parameters of the distributions that determine the conditional
+ probabilities between variables.
+ Parameter learning might be used if the structure of the Bayesian network
+ is known, but the conditional probabilities are unknown.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Maximum LLH parameter learning
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\hat{{\theta}}=\underset{a}{argmax}\left.P\left(D\mid\theta\right)\right.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+With a binomial distribution (aka pilou-face distrib) 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(D\mid\theta)=\frac{n!}{m!(n-m)!}\theta^{m}(1-\theta)^{n-m}\Longrightarrow\ell(\theta)=ln\left(\theta^{m}\left(1-\theta\right)^{n-m}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Then just solve 
+\begin_inset Formula $\frac{\partial l}{\partial\theta}=0$
+\end_inset
+
+ to get 
+\begin_inset Formula $\hat{\theta}=\frac{m}{n}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+PB1: it is a point estimate.
+ No pdf ...
+\end_layout
+
+\begin_layout Plain Layout
+PB2: with few samples can lead to nonsense (rare but dangerous events may
+ be ignored).
+ We want to take into account the number of samples ...
+ 
+\end_layout
+
+\begin_layout Plain Layout
+With a Gaussian we would maximize:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\ell(\mu,\sigma^{2})\propto-nln\sigma-\frac{\sum_{i}(\nu_{i}-\mu)^{2}}{2\sigma^{2}}$
+\end_inset
+
+ over the collected points 
+\begin_inset Formula $\nu_{i}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Bayesian parameter learning
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+With X a 2-ary R.V.:
+\series default
+ 
+\begin_inset Formula $P(x^{1})=\theta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $prior=Beta(\theta\mid\alpha,\beta)$
+\end_inset
+
+ (NB: 
+\begin_inset Formula $Beta(1,1)=\mathcal{U}[0,1]$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+We sample 
+\begin_inset Formula $m$
+\end_inset
+
+ ones and 
+\begin_inset Formula $n-m$
+\end_inset
+
+ zeros 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longrightarrow posterior=Beta(\alpha+m,\beta+n-m)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+When 
+\begin_inset Formula $m,n$
+\end_inset
+
+ increase then influence of prior decreases
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $Beta(6,6)$
+\end_inset
+
+ is a 
+\begin_inset Formula $50/50$
+\end_inset
+
+ distrib, 
+\begin_inset Formula $Beta(60,60)$
+\end_inset
+
+ also but more peaky at the mean
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $Beta(2,6)$
+\end_inset
+
+ (closer to 0) is flipped vs 
+\begin_inset Formula $Beta(6,2)$
+\end_inset
+
+ (closer to 1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+With X a n-ary R.V.: 
+\begin_inset Formula $P(x^{i})=\theta_{i}$
+\end_inset
+
+
+\series default
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $prior=Dir(\theta_{1:n}\mid\alpha_{1:n})$
+\end_inset
+
+ (NB: 
+\begin_inset Formula $Dir(1_{1:n})=\mathcal{U}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+We sample 
+\begin_inset Formula $m_{1}$
+\end_inset
+
+ ones, 
+\begin_inset Formula $m_{2}$
+\end_inset
+
+ twos, 
+\begin_inset Formula $\ldots$
+\end_inset
+
+, 
+\begin_inset Formula $m_{n}$
+\end_inset
+
+ n-s 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longrightarrow posterior=Dir(\theta_{1:n}\mid\alpha_{1}+m_{1},\ldots,\alpha_{n}+m_{n})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\color red
+If 
+\begin_inset Formula $Dir(1,1,1,1,1,1)$
+\end_inset
+
+ uniform prior 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ no idea for die
+\end_layout
+
+\begin_layout Plain Layout
+
+\color red
+If 
+\begin_inset Formula $Dir(100,100,100,100,100,100)$
+\end_inset
+
+ 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ pretty sure fair die
+\end_layout
+
+\begin_layout Plain Layout
+Beta and Dirichlet distributions are conjugate-priors easy to update via
+ Baye's rule
+\end_layout
+
+\begin_layout Plain Layout
+BPL Advantages:
+\end_layout
+
+\begin_layout Itemize
+With the prior, we can leverage expert knowledge (especially useful when
+ data is sparse) 
+\end_layout
+
+\begin_layout Itemize
+By computing a posterior distribution, we not only obtain an estimate for
+ the parameters, but also a confidence in our estimate.
+\end_layout
+
+\begin_layout Plain Layout
+BPL Drawbacks:
+\end_layout
+
+\begin_layout Itemize
+We need to come up with a prior distribution.
+ Depending on the prior, the posterior will be affected.
+ This might lead to the use of non-informative priors in the hope of letting
+ the data drive the posterior through the likelihood function, which in
+ turn can lead to results that are similar to using maximum likelihood.
+ 
+\end_layout
+
+\begin_layout Itemize
+Computing the posterior can only be done in some cases, but in general,
+ we have to use numerical integration or Monte Carlo methods.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Nonparametric learning
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+The number of parameters scale with the amount of data
+\end_layout
+
+\begin_layout Plain Layout
+Given observations 
+\begin_inset Formula $o_{1:n}$
+\end_inset
+
+, kernel density estimation represents the density as follows: 
+\begin_inset Formula $p(x)=\frac{1}{n}\sum_{i}K(x-o_{i})$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Where 
+\begin_inset Formula $K$
+\end_inset
+
+ is a kernel function which integrates to 
+\begin_inset Formula $1$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+It assigns greater density to values near the observed data points
+\end_layout
+
+\begin_layout Plain Layout
+Common kernel: zero-mean Gaussian distribution
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Bandwidth
+\shape default
+: means standard deviation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Structure Learning 
+\end_layout
+
+\begin_layout Standard
+To find the (unknown) structure of the Bayesian network.
+ This could arise if you had a large dataset and wanted to find the relationship
+s between variables.
+\end_layout
+
+\begin_layout Standard
+
+\color red
+To generate a model we can use for simulation
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Bayesian structure scoring and graph search 
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+Maximum likelihood approach: finding 
+\begin_inset Formula $G$
+\end_inset
+
+ that maximizes 
+\begin_inset Formula $P(G\mid D)$
+\end_inset
+
+, where 
+\begin_inset Formula $D$
+\end_inset
+
+ represents the available data.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+The Bayesian score metric, a log likelihood, is used to evaluate how good
+ a Bayesian Network Graph fits the observed data.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $ln\left.P(G\mid D)\right.=ln\left.P(G)\right.+\sum_{i=1}^{n}\sum_{j=1}^{q_{i}}ln\left(\frac{\Gamma(\alpha_{ij0})}{\Gamma(\alpha_{ij0}+m_{ij0})}\right)+\sum_{k=1}^{r_{i}}ln\left(\frac{\Gamma(\alpha_{ijk}+m_{ijk})}{\Gamma(\alpha_{ijk})}\right)$
+\end_inset
+
+ (NB: 
+\begin_inset Formula $\Gamma(n)=(n-1)!$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+\color red
+The Bayesian score is not convex
+\end_layout
+
+\begin_layout Plain Layout
+Graph search: K2 search + local search (hill climbing) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Markov Equivalence Classes 
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+2 Graphs are Markov equivalent iff they have:
+\end_layout
+
+\begin_layout Itemize
+same edges without regard to direction
+\end_layout
+
+\begin_layout Itemize
+same immoral v-structures i.e.
+ 
+\begin_inset Formula $X\rightarrow Y\leftarrow Z$
+\end_inset
+
+ with 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Z$
+\end_inset
+
+ not directly connected
+\end_layout
+
+\begin_layout Plain Layout
+Markov equiv class: set of all DAG that are Markov equiv.
+ Bscores within a class are very close if not equal.
+\end_layout
+
+\begin_layout Plain Layout
+Instead of searching the space of DAG, search the space of Markov equiv
+ classes (smaller)
+\end_layout
+
+\begin_layout Plain Layout
+Achtung with 
+\series bold
+PDAG
+\series default
+ (with undirected edges): we search equivalents DAGs by directing the undirected
+ edges without changing already directed edges !!! (cf exercise 19) But
+ v-structures count is based on original PDAG !!!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Decision Problems
+\end_layout
+
+\begin_layout Standard
+Rationale DM is reasoning about uncertainty and objectives (preferences)
+\end_layout
+
+\begin_layout Subsection
+Utility Theory
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Constraints on Rational Preferences
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\shape italic
+Completeness
+\shape default
+: we can compare them 
+\begin_inset Formula $A\succ B,A\prec B,A\sim B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Transitivity
+\shape default
+: 
+\begin_inset Formula $A\succeq B,B\succeq C\Rightarrow A\succeq C$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Continuity
+\shape default
+: 
+\begin_inset Formula $A\succeq C\succeq B\Rightarrow\exists p\text{ s.t. }\left[A:p;B:1-p\right]\sim C$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+translated to 
+\begin_inset Formula $\boxed{{pU(A)+(1-p)U(B)=U(C)}}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Independence
+\shape default
+: 
+\begin_inset Formula $A\succ B\Rightarrow\forall(C,p),\left[A:p;C:1-p\right]\succ\left[B:p;C:1-p\right]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We define 
+\begin_inset Formula $U$
+\end_inset
+
+ a utility related to preferences (or objectives or costs) so that it follows
+ these 4 axioms
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ utility of a lottery is 
+\color red
+
+\begin_inset Formula $U([S_{1}:p_{1};\ldots;S_{n}:p_{n}])=\sum_{i=1}^{n}p_{i}U(S_{i})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Maximum Expected Utility Principle
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\shape italic
+
+\begin_inset Formula $EU(a\mid o)=\sum_{s'}P(s'\mid a,o)U(s')$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+A rational agent chooses 
+\begin_inset Formula $a^{*}=\underset{a}{argmax}\left.EU(a\mid o)\right.$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Utility elicitation: how to infer 
+\begin_inset Formula $U$
+\end_inset
+
+ from humans 
+\end_layout
+
+\begin_layout Standard
+Multiple Variables: under some assumptions 
+\begin_inset Formula $U(x_{1:n})=\sum_{i}U(x_{i})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+BN + Utility 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ Decision Network 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Evaluating Decision Networks
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{minipage}{0.4
+\backslash
+linewidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{c c c} 
+\end_layout
+
+\begin_layout Plain Layout
+
+ T & D  & U(T,D) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  0 & 0  & 0 
+\backslash
+
+\backslash
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+  0 & 1  & -10 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  1 & 0  & -1 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  1 & 1  & -1 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{minipage}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{minipage}{0.4
+\backslash
+linewidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[node distance=0.5cm, >=stealth'] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (T) [events, rectangle, label=left:{Treat?}] {$T$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (D) [events, below = of T, label=left:{Disease?}] {$D$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (U) [events, diamond, right = of D] {$U$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (O1) [events, below left = of D] {$O_1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (O2) [events, below = of D] {$O_2$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (O3) [events, below right = of D] {$O_3$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (D) -- (O1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (D) -- (O2); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (D) -- (O3); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (D) -- (U); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (T) -- (U); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{minipage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $EU(a\mid o)=\sum_{s'}P(s'\mid a,o)U(s')$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+where 
+\begin_inset Formula $s'$
+\end_inset
+
+ represents an instanciation of the nodes in the decision network
+\end_layout
+
+\begin_layout Plain Layout
+we begin by instantiating the action nodes and observed chance nodes and
+ we sum over the unobserved variables
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $EU(t^{1}\mid o_{1}^{1})=\sum_{o_{3}}\sum_{o_{2}}\sum_{d}P(d,o_{2},o_{3}\mid t^{1},o_{1}^{1})U(t^{1},d,o_{1}^{1},o_{2},o_{3})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $EU(t^{1}\mid o_{1}^{1})=\sum_{d}\sum_{o_{2}}\sum_{o_{3}}P(d,o_{2},o_{3}\mid t^{1},o_{1}^{1})U(t^{1},d)$
+\end_inset
+
+ per BN
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $EU(t^{1}\mid o_{1}^{1})=\sum_{d}P(d\mid t^{1},o_{1}^{1})U(t^{1},d)$
+\end_inset
+
+ by removing marginalization
+\end_layout
+
+\begin_layout Plain Layout
+From there, any of the exact or approx inference method can be used to evaluate
+ 
+\begin_inset Formula $P(d\mid t^{1},o_{1}^{1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+
+\series bold
+Inference pb: what is the distribution of the variables that are parents
+ to the utility node ?
+\end_layout
+
+\begin_layout Plain Layout
+To decide whether to apply a treatment compare 
+\begin_inset Formula $EU(t^{1}\mid o_{1}^{1})$
+\end_inset
+
+ vs  
+\begin_inset Formula $EU(t^{0}\mid o_{1}^{1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Variant: remove action and chance nodes from decision networks if they have
+ no children (as per conditional, informational or functional edges)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Value Of Information
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\shape italic
+
+\begin_inset Formula $VOI(O'\mid o)=\left(\sum_{o'}P(o'\mid o)EU^{*}(o,o')\right)-EU^{*}(o)\geq0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+It is the increase of Expected Value gained by using an Observation variable
+ to make a better decision
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Game Theory
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+Strategy can be pure (deterministic) or mixte (stochastic)
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Strategy profile
+\shape default
+: 
+\begin_inset Formula $S_{1:n}$
+\end_inset
+
+assignment of strategies to all 
+\begin_inset Formula $n$
+\end_inset
+
+ agents
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Utility of agent 
+\begin_inset Formula $i$
+\end_inset
+
+
+\shape default
+: 
+\begin_inset Formula $U_{i}(s_{1:n})=U_{i}(s_{i},s_{-i})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Dominant strategy:
+\shape default
+ single best response 
+\begin_inset Formula $s_{i}^{*}$
+\end_inset
+
+ whatever the strategy of others
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\color blue
+Dominant strategy equilibrium
+\series default
+\color inherit
+: when all agents have a dominant strategy, it is their combination
+\end_layout
+
+\begin_layout Plain Layout
+Prisonner's dilemna:
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+R
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color blue
+-5,-5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,-10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+R
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-10,0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-1,-1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\color magenta
+Nash Equilibrium
+\series default
+\color inherit
+: a strategy profile 
+\begin_inset Formula $(s_{i},s_{-i})$
+\end_inset
+
+ where no agent can do better by 
+\series bold
+unilaterally
+\series default
+ changing strategy
+\end_layout
+
+\begin_layout Plain Layout
+Every game has at least 1 Nash equilibrium.
+\end_layout
+
+\begin_layout Plain Layout
+Collision avoidance game:
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Climb
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Desc
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Climb
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-5,-5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+-1,0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Desc
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+0,-1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-4,-4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+PB: it is not reflective of how humans behave
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Behavioral Game Theory
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+PBs with Nash Equilibrium:
+\end_layout
+
+\begin_layout Itemize
+Often multiple NEs
+\end_layout
+
+\begin_layout Itemize
+Difficult to compute for humans
+\end_layout
+
+\begin_layout Itemize
+Opponents might not compute NE; even if you do
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Logit level-k model:
+\series default
+ is more representative of humans behavior
+\end_layout
+
+\begin_layout Itemize
+Humans are more likely to make errors when they are costly
+\end_layout
+
+\begin_layout Itemize
+Humans reasoning is limited in strategic look-ahead
+\end_layout
+
+\begin_layout Plain Layout
+2 parameters:
+\end_layout
+
+\begin_layout Itemize
+Precision: 
+\begin_inset Formula $\lambda\geq0$
+\end_inset
+
+ sensitivity to utility differences (
+\begin_inset Formula $0$
+\end_inset
+
+ is insensitive)
+\end_layout
+
+\begin_layout Itemize
+Depth: 
+\begin_inset Formula $k>0$
+\end_inset
+
+ of rationality
+\end_layout
+
+\begin_layout Plain Layout
+Level-0: selects actions randomly
+\end_layout
+
+\begin_layout Plain Layout
+Level-1: assume opponents are level-0 and selects actions according to softmax
+ (or logit) distribution 
+\begin_inset Formula $P(a_{i})\propto e^{\lambda U_{i}(a_{i},s_{-i})}$
+\end_inset
+
+ where here 
+\begin_inset Formula $s_{-i}$
+\end_inset
+
+ is just uniform level-0
+\end_layout
+
+\begin_layout Plain Layout
+Level-k: assume opponents are level-k-1 ...
+\end_layout
+
+\begin_layout Plain Layout
+The parameters 
+\begin_inset Formula $k,\lambda$
+\end_inset
+
+ can be learned from data by maximising likelihood 
+\begin_inset Formula $P(Model\mid Data)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Logit level-k model:
+\series default
+ collect a bunch of data and fits the model
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Nash Equilibrium:
+\series default
+ no data needed, you have to work out the solution (but no known polynomial
+ algo to find it)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Traveller's dilemna
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+2 suitcases.
+ Cost has to be estimated 
+\begin_inset Formula $\in[2\$,100\$]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $U_{i}(a_{i},a_{-i})=\begin{cases}
+a_{i} & \text{if }a_{i}=a_{-i}\\
+a_{i}+2 & \text{if }a_{i}<a_{-i}\\
+a_{i}-2 & \text{if }a_{i}>a_{-i}
+\end{cases}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $[100\$,100\$]$
+\end_inset
+
+ is that optimal choice ? If opponent puts 
+\begin_inset Formula $100\$$
+\end_inset
+
+ I can earn more money by putting 
+\begin_inset Formula $99\$$
+\end_inset
+
+ and so on ...
+ down to 
+\begin_inset Formula $2\$$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\color magenta
+NE is at 
+\begin_inset Formula $[2\$,2\$]$
+\end_inset
+
+
+\color inherit
+ just check the Utility matrix.
+ If I know you are going to play 
+\begin_inset Formula $\$2$
+\end_inset
+
+ I will stick to my choice.
+ No better action can be deduced by knowing opponent action in this state.
+ In all other cases of the matrix, I would change my choice.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lambda=0.3,k=0$
+\end_inset
+
+: uniform between 
+\begin_inset Formula $[2\$,100\$]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lambda=0.3,k=1$
+\end_inset
+
+: mostly between 
+\begin_inset Formula $[70\$,100\$]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lambda=0.3,k=2$
+\end_inset
+
+: mostly between 
+\begin_inset Formula $[80\$,100\$]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lambda=0.3,k=3$
+\end_inset
+
+: mostly between 
+\begin_inset Formula $[80\$,100\$]$
+\end_inset
+
+ but more concentrated at 
+\begin_inset Formula $90\$$
+\end_inset
+
+ .
+ Close to human behaviors.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lambda=0.5$
+\end_inset
+
+ more precision 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ more spiky.
+ 
+\begin_inset Formula $\lambda$
+\end_inset
+
+is a precision parameter that controls the variance on the behavior.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Useful Functions
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Gamma function
+\end_layout
+
+\begin_layout Plain Layout
+Real-valued generalization of the factorial.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Gamma(z)=\int_{0}^{\infty}x^{z-1}e^{-x}dx\Longrightarrow\Gamma(z+1)=z\:\Gamma(z)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+If 
+\begin_inset Formula $n\in\mathbb{N\text{ then }}\Gamma(n)=(n-1)!$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Beta distribution
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $f(x;\alpha,\beta)=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[
+\end_layout
+
+\begin_layout Plain Layout
+
+  declare function={
+\end_layout
+
+\begin_layout Plain Layout
+
+    gamma(
+\backslash
+z) =
+\end_layout
+
+\begin_layout Plain Layout
+
+    (2.506628274631*sqrt(1/
+\backslash
+z)+0.20888568*(1/
+\backslash
+z)^(1.5)+
+\end_layout
+
+\begin_layout Plain Layout
+
+    0.00870357*(1/
+\backslash
+z)^(2.5)-(174.2106599*(1/
+\backslash
+z)^(3.5))/25920-
+\end_layout
+
+\begin_layout Plain Layout
+
+    (715.6423511*(1/
+\backslash
+z)^(4.5))/1244160)*exp((-ln(1/
+\backslash
+z)-1)*
+\backslash
+z);
+\end_layout
+
+\begin_layout Plain Layout
+
+  },
+\end_layout
+
+\begin_layout Plain Layout
+
+  declare function={
+\end_layout
+
+\begin_layout Plain Layout
+
+    beta(
+\backslash
+a,
+\backslash
+b) = gamma(
+\backslash
+a)*gamma(
+\backslash
+b)/gamma(
+\backslash
+a+
+\backslash
+b);
+\end_layout
+
+\begin_layout Plain Layout
+
+  },
+\end_layout
+
+\begin_layout Plain Layout
+
+  declare function={
+\end_layout
+
+\begin_layout Plain Layout
+
+    betapdf(
+\backslash
+x,
+\backslash
+a,
+\backslash
+b) = 
+\backslash
+x^(
+\backslash
+a-1)*(1-
+\backslash
+x)^(
+\backslash
+b-1)/beta(
+\backslash
+a,
+\backslash
+b);
+\end_layout
+
+\begin_layout Plain Layout
+
+  }]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+begin{axis}[
+\end_layout
+
+\begin_layout Plain Layout
+
+	legend style={font=
+\backslash
+fontsize{4}{5}
+\backslash
+selectfont},
+\end_layout
+
+\begin_layout Plain Layout
+
+    width=4cm, height=3cm,
+\end_layout
+
+\begin_layout Plain Layout
+
+    samples=30,
+\end_layout
+
+\begin_layout Plain Layout
+
+    xlabel=$x$, ylabel=$$,
+\end_layout
+
+\begin_layout Plain Layout
+
+    xlabel style={at={(1,0)}, anchor=north west},
+\end_layout
+
+\begin_layout Plain Layout
+
+    ylabel style={rotate=-90, at={(0,1)}, anchor=south east},
+\end_layout
+
+\begin_layout Plain Layout
+
+    legend style={draw=none, fill=none},
+\end_layout
+
+\begin_layout Plain Layout
+
+    domain=0.01:0.99,
+\end_layout
+
+\begin_layout Plain Layout
+
+    legend pos=outer north east,
+\end_layout
+
+\begin_layout Plain Layout
+
+    legend cell align=left,
+\end_layout
+
+\begin_layout Plain Layout
+
+    clip=false]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+addplot[smooth] {betapdf(x,1,1)};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+addlegendentry{$
+\backslash
+alpha=1$, $
+\backslash
+phantom{.}
+\backslash
+beta=1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+addplot[smooth, red] {betapdf(x,6,2)};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+addlegendentry{$
+\backslash
+alpha=6$, $
+\backslash
+phantom{.}
+\backslash
+beta=2$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+addplot[smooth, blue] {betapdf(x,2,6)};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+addlegendentry{$
+\backslash
+alpha=2$, $
+\backslash
+beta=6$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+addplot[smooth, orange] {betapdf(x,5,5)};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+addlegendentry{$
+\backslash
+alpha=5$, $
+\backslash
+beta=5$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+addplot[smooth, purple] {betapdf(x,20,20)};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+addlegendentry{$
+\backslash
+alpha=20$, $
+\backslash
+phantom{.}
+\backslash
+beta=20$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+end{axis}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{multicols}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

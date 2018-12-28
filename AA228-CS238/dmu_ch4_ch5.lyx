@@ -1,0 +1,6264 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extarticle
+\begin_preamble
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{calc}
+\usepackage{color,graphicx,overpic}
+\usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
+\usepackage{ifthen}
+\usepackage{multicol}
+\usepackage{titlesec}
+\usepackage{wrapfig}
+
+\titlespacing*{\section}{0pt}{0.5em}{0em}
+\titlespacing*{\subsection}{0pt}{0.5em}{0em}
+\titlespacing*{\subsubsection}{0pt}{0.5em}{0em}
+\titleformat{\section}{\vspace{1em}\titlerule\normalfont\fontsize{7}{7}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\fontsize{6}{6}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsubsection}{\titlerule\normalfont\fontsize{6}{6}}{\thesection}{1em}{}
+\titlespacing*{\labeling}{0pt}{0em}{0em}
+
+\let\stdboxed\boxed
+\renewcommand{\boxed}[1]{
+  \setlength{\fboxsep}{0.05em}
+  \stdboxed{#1}
+}
+
+\setlist{nolistsep,leftmargin=*}
+
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\columnsep}{10pt}
+
+\newtheorem{example}[section]{Example}
+
+\let\textquotedbl="
+\def\ci{\perp\!\!\!\perp}
+
+\raggedright
+
+\newcommand{\mytitle}[2]{
+  \begin{center}\small{#1} -- \scriptsize{#2}\end{center}
+}
+
+
+\hyphenpenalty=100
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows}
+\usetikzlibrary{er,positioning}
+\tikzset{
+    events/.style={ellipse, draw, align=center},
+}
+
+\usepackage{graphicx}
+\usetikzlibrary{fit}
+\usetikzlibrary{bayesnet}
+\usepackage{pgfplots}
+
+\usepackage{forest}
+\usetikzlibrary{positioning}
+\end_preamble
+\options 3pt
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman "times" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification false
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.25in
+\topmargin 0.25in
+\rightmargin 0.25in
+\bottommargin 0.25in
+\secnumdepth -2
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle empty
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fontsize{6}{5}
+\backslash
+selectfont
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mytitle{
+\backslash
+textbf{Decision Making Under Uncertainty Ch4-Ch5 Stanford AA228 course notes}}{
+\backslash
+textbf{Philippe Weingertner}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{multicols}{4}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% FOR 2 PAGES VERSION:
+\end_layout
+
+\begin_layout Plain Layout
+
+% fontsize{6}{5} + multicols}{4}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% FOR 3 PAGES VERSION:
+\end_layout
+
+\begin_layout Plain Layout
+
+% fontsize{8}{7} + multicols}{3}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+DMU Ch.4 Sequential Problems
+\end_layout
+
+\begin_layout Standard
+Optimal decisions making requires reasoning about future sequences of actions
+ and observations
+\end_layout
+
+\begin_layout Standard
+Assumption in Ch.4: model is known i.e.
+ 
+\color magenta
+we know 
+\begin_inset Formula $T(s'\mid s,a),R(s,a)$
+\end_inset
+
+ 
+\color inherit
+and environement is fully observable
+\end_layout
+
+\begin_layout Subsection
+Formulation
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+MDP 
+\begin_inset Formula $<\mathcal{S},\mathcal{A},T,R>$
+\end_inset
+
+ stationary representation
+\end_layout
+
+\begin_layout Plain Layout
+Markov assumption: current state only depends on your previous state and
+ the action you took to get there
+\end_layout
+
+\begin_layout Plain Layout
+Stationary: 
+\begin_inset Formula $T,R$
+\end_inset
+
+ do not change with time
+\end_layout
+
+\begin_layout Plain Layout
+Decision Network but with 
+\begin_inset Formula $P(S_{t+1}\mid S_{t},A_{t})$
+\end_inset
+
+ and 
+\begin_inset Formula $P(R_{t}\mid A_{t},S_{t})$
+\end_inset
+
+, not stationary, in the general case 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[node distance=0.4cm, >=stealth'] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (A) [events, rectangle, scale=0.75] {$A_t$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (R) [events, diamond, scale=0.6, below = of A] {$R_t$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (S) [events, scale=0.75, below = of R] {$S_t$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (Snext) [events, circle, scale=0.75, right = of S] {$S_{t+1}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (A) -- (R); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (S) -- (R); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (S) -- (Snext); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (A) -- (Snext);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->, bend left, dotted] (S.west) to (A.west); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $R(s,a)$
+\end_inset
+
+: expected reward received when executing action 
+\begin_inset Formula $a$
+\end_inset
+
+ from state 
+\begin_inset Formula $s$
+\end_inset
+
+.
+ Here we assume it is a deterministic function (but not required).
+\end_layout
+
+\begin_layout Plain Layout
+Utility function decomposed into rewards 
+\begin_inset Formula $R_{0:t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Utility and Reward
+\end_layout
+
+\begin_layout Plain Layout
+Finite horizon: 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\sum_{t=0}^{n-1}r_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Infinite horizon: 
+\end_layout
+
+\begin_layout Itemize
+discounted sum 
+\begin_inset Formula $\sum_{t=0}^{\infty}\gamma^{t}r_{t}\text{ with }\gamma\in[0,1($
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+or average reward 
+\begin_inset Formula $\underset{n\rightarrow\infty}{lim}\frac{1}{n}\sum_{t=0}^{n-1}r_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Discount factor 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ : gives a higher value to plans that reach a reward sooner and bounds the
+ utility of a state, ensuring it does not reach infinity.
+\end_layout
+
+\begin_layout Plain Layout
+A small 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ discounts future rewards more heavily.
+ A solution with a small 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ will be greedy, meaning that it will prefer immediate rewards more than
+ long-term rewards.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+The opposite is true for a large discount factor.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Dynamic Programming
+\end_layout
+
+\begin_layout Standard
+DP is a method for solving problems by breaking them into subproblems.
+ DP is more efficient than brute force methods because it leverages the
+ solutions of subproblems.
+ Examples: Viterbi, shortest path ...
+\end_layout
+
+\begin_layout Standard
+Simplify a complicated problem by breaking it down into simpler sub-problems
+ in a recursive manner.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Policy:
+\series default
+ determines action given past history of states and actions 
+\begin_inset Formula $a=\pi_{t}(h_{t})=\pi_{t}(s_{0:t},a_{0:t-1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+But with MDP we just care about current state as 
+\begin_inset Formula $s_{t}$
+\end_inset
+
+ d-separates past from future
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ 
+\begin_inset Formula $\pi_{t}(s_{t})$
+\end_inset
+
+ or 
+\begin_inset Formula $\pi(s_{t})$
+\end_inset
+
+ if the policy is stationary
+\end_layout
+
+\begin_layout Standard
+With finite horizon you may want to change your policy (e.g.
+ if you know you will die tomorrow)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T^{\pi}$
+\end_inset
+
+ is the transition function for only the policy 
+\begin_inset Formula $\pi$
+\end_inset
+
+ so we have 
+\begin_inset Formula $T(s'\mid s,\pi(s))$
+\end_inset
+
+ and the next states 
+\begin_inset Formula $s'$
+\end_inset
+
+ is now only a function of the current state 
+\begin_inset Formula $s$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U^{\pi}(s)=Q^{\pi}(s,\pi(s))$
+\end_inset
+
+: 
+\series bold
+expected utility
+\series default
+ of executing 
+\begin_inset Formula $\pi$
+\end_inset
+
+ from state 
+\begin_inset Formula $s$
+\end_inset
+
+ aka 
+\shape italic
+Value function
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U(s)=\underset{a}{max}\;Q(s,a)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U^{*}=\underset{\pi}{max}\;U^{\pi}$
+\end_inset
+
+ is the optimal value function i.e.
+ the value of being in state 
+\begin_inset Formula $s$
+\end_inset
+
+ assuming you follow an optimal policy
+\end_layout
+
+\begin_layout Standard
+An optimal policy 
+\begin_inset Formula $\pi^{*}$
+\end_inset
+
+ is a policy that maximizes expected utility: 
+\begin_inset Formula $\pi^{*}(s)=\underset{\pi}{argmax}\;U^{\pi}(s)$
+\end_inset
+
+ for all states 
+\begin_inset Formula $s$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The optimal policy isn’t necessarily unique, but the optimal value for each
+ state is unique.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Recursive Equation 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Dynamic Programming
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $U_{k}^{\pi}(s)=R(s,\pi(s))+\gamma\sum_{s'}T(s'\mid s,\pi(s))U_{k-1}^{\pi}(s')$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+With a fixed policy 
+\begin_inset Formula $\pi$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+The iteration number, subscript 
+\begin_inset Formula $k$
+\end_inset
+
+, can be interpreted as the number of steps 
+\series bold
+\shape italic
+remaining
+\series default
+\shape default
+ to the end
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\gamma\rightarrow1\Rightarrow\text{less myopic}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\shape italic
+\color blue
+Bellman Equations
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\shape italic
+\color blue
+\begin_inset Formula $U_{k}^{*}(s)=\underset{a}{max}\:[R(s,a)+\gamma\sum_{s'}T(s'\mid s,a)U_{k-1}^{*}(s')]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\shape italic
+\color blue
+\begin_inset Formula $\pi^{*}(s)=\underset{a}{argmax}\:[R(s,a)+\gamma\sum_{s'}T(s'\mid s,a)U^{*}(s')]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\color red
+\begin_inset Formula $U^{*}(s)=\underset{a}{max}\:[R(s,a)+\gamma\sum_{s'}T(s'\mid s,a)U^{*}(s')]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+PI and VI are algorithms used to find optimal policies.
+ Both are forms of DP.
+ PI directly updates the policy.
+ VI updates the expected utility of each state using the Bellman equation
+ and retrieves the optimal policy from those utilities.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Policy Evaluation
+\end_layout
+
+\begin_layout Plain Layout
+Computing the expected utility obtained from executing a policy.
+ It can be computed: 
+\end_layout
+
+\begin_layout Plain Layout
+DP with 
+\begin_inset Formula $U_{0}^{\pi}(s)=0,U_{1}^{\pi}(s)=R(s,\pi(s))$
+\end_inset
+
+ and then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $U_{t}^{\pi}(s)=R(s,\pi(s))+\gamma\sum_{s'}T(s'\mid s,\pi(s))U_{t-1}^{\pi}(s')$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+For 
+\begin_inset Formula $\infty$
+\end_inset
+
+ horizon, computed well with enough iterations:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $U^{\pi}(s)=R(s,\pi(s))+\gamma\sum_{s'}T(s'\mid s,\pi(s))U^{\pi}(s')$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Or by solving a system of 
+\begin_inset Formula $|S|$
+\end_inset
+
+ linear equations
+\end_layout
+
+\begin_layout Plain Layout
+matrices: 
+\begin_inset Formula $U^{\pi}=R^{\pi}+\gamma\:T^{\pi}U^{\pi}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+dims: 
+\begin_inset Formula $n\times1=n\times1+(n\times n)(n\times1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $U^{\pi}=(1-\gamma\:T^{\pi})^{-1}R^{\pi}$
+\end_inset
+
+ in 
+\begin_inset Formula $O(n^{3})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Policy Iteration:
+\series default
+ every steps (policy evaluation then policy improvement) leads to improvement.
+ As nb policies is finite 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ algo terminates with an optimal solution
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{PolicyIteration}{$
+\backslash
+pi_0$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $k 
+\backslash
+gets 0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Repeat 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State Compute $U^{
+\backslash
+pi_k}$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $
+\backslash
+pi_{k+1}(s) = argmax_a[R(s,a) + 
+\backslash
+gamma 
+\backslash
+sum_{s'}T(s'|s,a)U^{
+\backslash
+pi_k}(s') ]
+\backslash
+text{ for all states }s$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $k 
+\backslash
+gets k+1$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Until {$
+\backslash
+pi_k=
+\backslash
+pi_{k-1}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return $
+\backslash
+pi_k$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Variants of PI: e.g.
+ approx 
+\begin_inset Formula $U^{\pi_{k}}$
+\end_inset
+
+ using only a few iters of iterative policy eval instead of computing 
+\begin_inset Formula $U$
+\end_inset
+
+ exactly.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Value Iteration:
+\series default
+ simple and easy to implement.
+ Terminates when 
+\begin_inset Formula $residual=\left\Vert U_{k}-U_{k-1}\right\Vert <\delta=\epsilon\frac{1-\gamma}{\gamma}$
+\end_inset
+
+ which gurantees 
+\begin_inset Formula $U$
+\end_inset
+
+ is within 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ of 
+\begin_inset Formula $U^{*}$
+\end_inset
+
+ and policy loss is less than 
+\begin_inset Formula $2\epsilon$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{ValueIteration}{} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $k 
+\backslash
+gets 0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $U_0(s) 
+\backslash
+gets 0
+\backslash
+text{ for all states }s$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Repeat 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $U_{k+1}(s) 
+\backslash
+gets max_a[R(s,a) + 
+\backslash
+gamma 
+\backslash
+sum_{s'}T(s' | s,a)U_k(s') ]
+\backslash
+text{ for all states }s$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $k 
+\backslash
+gets k+1$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Until {convergence}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $
+\backslash
+pi_k(s) 
+\backslash
+gets 
+\backslash
+arg
+\backslash
+max_a
+\backslash
+left[R(s, a) + 
+\backslash
+gamma 
+\backslash
+sum_{s'} T(s' | s, a)U_k(s')
+\backslash
+right]$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return $U_k,
+\backslash
+pi_k$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In asynchronous VI, only a subset of the states may be updated per iteration.
+ The state ordering is important because different orderings can take a
+ different number of iterations to converge to the optimal value function.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Gauss-Seidel Value Iteration
+\end_layout
+
+\begin_layout Plain Layout
+Is an asynchronous VI where only a subset of the states is updated per iteration.
+ We sweep through an ordering of states and 
+\series bold
+update in place one state at a time
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+No copy(U) required, 
+\begin_inset Formula $50\%$
+\end_inset
+
+ mem required, and usually faster CV
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color magenta
+You must understand how U(s) is updated after 1st, 2nd, 3rd ...
+ sweep around a reward state (diffusion effect) and how 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ impacts the final 
+\begin_inset Formula $U(s)$
+\end_inset
+
+ (the higher, the more the rewards propagate far away.
+ The smaller the 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, the shortest path to a low reward is taken.
+ even if a better reward exist farther away.
+ With higher 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ we would take a longer path to a higher reward)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Planning: closed and open loop
+\end_layout
+
+\begin_layout Plain Layout
+Planning: process of using a model to choose an action in a sequential problem
+\end_layout
+
+\begin_layout Plain Layout
+Closed-loop: 
+\end_layout
+
+\begin_layout Itemize
+Accounts for future state information and uncertainty 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ develop a reactive plan
+\end_layout
+
+\begin_layout Itemize
+VI is more difficult to scale
+\end_layout
+
+\begin_layout Plain Layout
+Open-loop: 
+\end_layout
+
+\begin_layout Itemize
+Develop a static plan.
+ Execute first steps and replan.
+ Many PP algos here.
+ MPC as well.
+\end_layout
+
+\begin_layout Itemize
+MPC can scale easily to large and continuous spaces
+\end_layout
+
+\begin_layout Plain Layout
+Example: 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{forest} 
+\end_layout
+
+\begin_layout Plain Layout
+
+  for tree={grow=0}
+\end_layout
+
+\begin_layout Plain Layout
+
+    [{$root$}
+\end_layout
+
+\begin_layout Plain Layout
+
+      [{$D$}, edge label={node[midway,font=
+\backslash
+scriptsize]{$1$}}
+\end_layout
+
+\begin_layout Plain Layout
+
+        [{$20$}, edge label={node[midway,font=
+\backslash
+scriptsize]{$1$}}]
+\end_layout
+
+\begin_layout Plain Layout
+
+        [{$20$}, edge label={node[midway,font=
+\backslash
+scriptsize]{$1$}}]
+\end_layout
+
+\begin_layout Plain Layout
+
+      ]
+\end_layout
+
+\begin_layout Plain Layout
+
+      [{$U_1$}, edge=dotted, edge label={node[midway,font=
+\backslash
+scriptsize]{$
+\backslash
+frac{1}{2}$}}
+\end_layout
+
+\begin_layout Plain Layout
+
+        [{$30$}, edge label={node[midway,font=
+\backslash
+scriptsize]{$1$}}]
+\end_layout
+
+\begin_layout Plain Layout
+
+        [{$0$}, edge label={node[midway,font=
+\backslash
+scriptsize]{$1$}}]
+\end_layout
+
+\begin_layout Plain Layout
+
+      ]
+\end_layout
+
+\begin_layout Plain Layout
+
+      [{$U_2$}, edge=dotted, edge label={node[midway,font=
+\backslash
+scriptsize]{$
+\backslash
+frac{1}{2}$}}
+\end_layout
+
+\begin_layout Plain Layout
+
+        [{$0$}, edge label={node[midway,font=
+\backslash
+scriptsize]{$1$}}]
+\end_layout
+
+\begin_layout Plain Layout
+
+        [{$30$}, edge label={node[midway,font=
+\backslash
+scriptsize]{$1$}}]
+\end_layout
+
+\begin_layout Plain Layout
+
+      ]
+\end_layout
+
+\begin_layout Plain Layout
+
+    ]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{forest}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Closed-loop: 
+\end_layout
+
+\begin_layout Itemize
+plan UP and then either UP or DOWN for 
+\begin_inset Formula $U=30$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Open-loop: 
+\end_layout
+
+\begin_layout Itemize
+plan DOWN, DOWN for 
+\begin_inset Formula $U(D,D)=20$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+bcz 
+\begin_inset Formula $U(UP,UP)=U(UP,DOWN)=15$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Closed-loop control attempts to compute an optimal action for every state
+ you can be in.
+ Open-loop control computes an optimal trajectory, and gives you the action
+ to take along the trajectory, but doesn’t tell you what to do if you deviate
+ from the trajectory.
+ Open-loop planning methods do not account for future state information.
+ In control systems engineering this future state information is called
+ feedback.
+ Closed-loop methods plan by anticipating feedback from the environment
+ and considering the ability to take actions in future states.
+\end_layout
+
+\begin_layout Subsection
+Structured Representations
+\end_layout
+
+\begin_layout Standard
+Factored MDP: dynamic Decision Network.
+ Actions, rewards and states factored into multiple nodes.
+ Then use Decision Trees (or Decision Diagrams) to represent conditional
+ probabilities.
+\end_layout
+
+\begin_layout Standard
+Structured DP:
+\end_layout
+
+\begin_layout Itemize
+perform updates on the leaves of the DT instead of all the states
+\end_layout
+
+\begin_layout Itemize
+aggregate states and leverage additive decomposition of R and U functions.
+\end_layout
+
+\begin_layout Itemize
+resulting policy may be represented as a DT: interior nodes test state var
+ and leaf nodes correspond to actions
+\end_layout
+
+\begin_layout Subsection
+Linear Representations
+\end_layout
+
+\begin_layout Standard
+We can find exact optimal policy for continuous state and action spaces
+ (no discretization required) if:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Two assumptions for exact continuous solution
+\end_layout
+
+\begin_layout Enumerate
+Dynamics are linear Gaussian: 
+\begin_inset Formula $T(z\mid s,a)=\mathcal{N}(z\mid T_{s}s+T_{a}a,\Sigma)$
+\end_inset
+
+ with 
+\begin_inset Formula $z,s,a$
+\end_inset
+
+ vectors
+\end_layout
+
+\begin_layout Enumerate
+Reward is quadratic: 
+\begin_inset Formula $R(s,a)=s^{\top}R_{s}\:s+a^{\top}R_{a}\:a$
+\end_inset
+
+ where 
+\begin_inset Formula $R_{s}$
+\end_inset
+
+ negative semi-definite and 
+\begin_inset Formula $R_{a}$
+\end_inset
+
+ negative definite (<0)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $U_{n}(s)=s^{\top}V_{n}\:s+q_{n}=scalar$
+\end_inset
+
+ and 
+\begin_inset Formula $\pi_{n}(s)$
+\end_inset
+
+ is a product of matrices operations (transpose, multiplication, inverse)
+\end_layout
+
+\begin_layout Plain Layout
+Subscript 
+\begin_inset Formula $n$
+\end_inset
+
+ is the number of remaining steps (book: assumed finite horizon undiscounted
+ reward problem)
+\end_layout
+
+\begin_layout Plain Layout
+PBs when you have multi-modalities
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Approximate Dynamic Programming
+\end_layout
+
+\begin_layout Standard
+Finding approximately optimal policies for problems with large or continuous
+ spaces.
+ Shares ideas with RL (i.e.
+ without known model)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Local Approximation
+\end_layout
+
+\begin_layout Plain Layout
+Grid discretization to 
+\begin_inset Formula $n$
+\end_inset
+
+ points and multilinear interpol
+\end_layout
+
+\begin_layout Plain Layout
+
+\color magenta
+E.g.
+ 
+\begin_inset Formula $U(s)$
+\end_inset
+
+ interpolation based on 4 nearest neighbors with a weight that is distance
+ dependent.
+ But the way we compute 
+\begin_inset Formula $\lambda_{i}=U(s_{i})$
+\end_inset
+
+ is a bit counter-intuitive ! Cf algo LocalApproxValueIteration
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $U(s)=\sum_{i=1}^{n}\lambda_{i}\beta_{i}(s)$
+\end_inset
+
+ with 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+ value at 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+ weighted by 
+\begin_inset Formula $\beta_{i}(s)$
+\end_inset
+
+ s.t.
+ 
+\begin_inset Formula $\sum_{i}\beta_{i}(s)=1$
+\end_inset
+
+ and more weight to closest states 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $U(s)=\overset{\rightarrow}{\lambda}^{\top}\overset{\rightarrow}{\beta}(s)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Nearest Neighbor: 
+\begin_inset Formula $\beta_{i}(s)=\begin{cases}
+1 & \text{if }s_{i}\text{ closest to }s_{i}\\
+0 & \text{otherwise}
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Linear interpolation with 
+\begin_inset Formula $N(s)=\{s_{1},s_{2}\}$
+\end_inset
+
+ from 
+\begin_inset Formula $s_{1:n}$
+\end_inset
+
+: 
+\begin_inset Formula $U(s)=\lambda_{1}\left(1-\frac{s-s_{1}}{s_{2}-s_{1}}\right)+\lambda_{2}\left(1-\frac{s_{2}-s}{s_{2}-s_{1}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+When 
+\begin_inset Formula $n\nearrow$
+\end_inset
+
+ we have a grid with 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ points per hyper-cube 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ do linear interpolation on a simplex of 
+\begin_inset Formula $n+1$
+\end_inset
+
+ points (in 
+\begin_inset Formula $2D$
+\end_inset
+
+: within triangles instead of squares)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\lambda,u,\beta(s')$
+\end_inset
+
+ are vectors in the below algo
+\end_layout
+
+\begin_layout Standard
+You have to fix 
+\begin_inset Formula $\beta$
+\end_inset
+
+ and it will CV to a unique 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ solution
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{LocalApproxValueIteration}{} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $
+\backslash
+lambda 
+\backslash
+gets 0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Loop 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+For{$i 
+\backslash
+gets 1
+\backslash
+text{ to }n$}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+State $u_i 
+\backslash
+gets max_a[R(s_i,a) + 
+\backslash
+gamma 
+\backslash
+int_{s'}T(s' | s_i,a)
+\backslash
+lambda^T 
+\backslash
+beta(s') ]$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $
+\backslash
+lambda 
+\backslash
+gets u$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndLoop
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return $
+\backslash
+lambda$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Global Approximation
+\end_layout
+
+\begin_layout Plain Layout
+We are fitting a surface over the whole state space.
+\end_layout
+
+\begin_layout Plain Layout
+E.g.
+ 
+\color magenta
+polynomial approximation of 
+\begin_inset Formula $U(s)=\sum_{i=1}^{m}\lambda_{i}s^{i}$
+\end_inset
+
+
+\color inherit
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Or use a Neural Network ...
+\end_layout
+
+\begin_layout Plain Layout
+Use 
+\begin_inset Formula $m$
+\end_inset
+
+ features as inputs to the approx value fct
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $U(s)=\sum_{i=1}^{m}\lambda_{i}\beta_{i}(s)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Set of basis functions or features: 
+\begin_inset Formula $\beta_{i}:\mathcal{S\rightarrow\mathbb{R}}$
+\end_inset
+
+ e.g.
+ 
+\begin_inset Formula $\beta_{2}(s)=s^{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lambda_{1:m}$
+\end_inset
+
+ are a set of parameters for linear approximation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{LinearRegValueIteration}{} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $
+\backslash
+lambda 
+\backslash
+gets 0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Loop 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+For{$i 
+\backslash
+gets 1
+\backslash
+text{ to }n$}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+State $u_i 
+\backslash
+gets max_a[R(s_i,a) + 
+\backslash
+gamma 
+\backslash
+sum_{s'}T(s' | s_i,a)
+\backslash
+lambda^T 
+\backslash
+beta(s') ]$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $
+\backslash
+lambda_{1:m} 
+\backslash
+gets Regress(
+\backslash
+beta,s_{1:n},u_{1:n})$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndLoop
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return $
+\backslash
+lambda$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Linear Regression in Global Approximation
+\end_layout
+
+\begin_layout Plain Layout
+The Regress function finds the 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ that leads to the best approximation of the target values 
+\begin_inset Formula $u_{1:n}$
+\end_inset
+
+ at points 
+\begin_inset Formula $s_{1:n}$
+\end_inset
+
+ using the basis fct 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+ A common regression objective is MSE: 
+\begin_inset Formula $\sum_{i=1}^{n}(\lambda^{T}\beta(s_{i})-u_{i})^{2}$
+\end_inset
+
+.
+ Linear Least-Squares regression can compute the 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ that min sum-squared error through simple matrix ops.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Online Methods
+\end_layout
+
+\begin_layout Standard
+Do not compute the policy for the entire state space offline.
+ Restrict computation to states reachable from current state.
+ May be a MUCH smaller space !!!
+\end_layout
+
+\begin_layout Standard
+Downside: intensive computation and simulation at each timestep so it might
+ not be appropriate when computational resources are at a premium.
+\end_layout
+
+\begin_layout Standard
+
+\color magenta
+NB: in Ch 4, we know our model 
+\begin_inset Formula $T(s'\mid s,a),R(s,a)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Forward Search
+\end_layout
+
+\begin_layout Plain Layout
+Simple online action-selection: looks ahead from 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ to some depth 
+\begin_inset Formula $d$
+\end_inset
+
+ .
+ Full enumeration.
+ As long as your goal is within d-steps you get it
+\end_layout
+
+\begin_layout Plain Layout
+Complexity: 
+\begin_inset Formula $O(\left(\left|S\right|\times\left|A\right|\right)^{d})$
+\end_inset
+
+ exponential time
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{SelectAction}{$s,d$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+If {$d=0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State 
+\backslash
+Return $(NIL,0)$ 
+\backslash
+Comment{BB: (NIL, 
+\backslash
+underline{U}(s))}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndIf
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $(a^*,v^*) 
+\backslash
+gets (NIL,-
+\backslash
+infty)$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+For {$a 
+\backslash
+in A(s)$} 
+\backslash
+Comment{BB: in descending order of $
+\backslash
+overline{U}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $v 
+\backslash
+gets R(s,a)$ 
+\backslash
+Comment{BB: prune if $
+\backslash
+overline{U}(s,a)<v^*$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+For {$s' 
+\backslash
+in S(s,a)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+State $(a',v') 
+\backslash
+gets 
+\backslash
+Call {SelectAction}{s,d-1}  $
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+State $v 
+\backslash
+gets v + 
+\backslash
+gamma T(s' 
+\backslash
+mid s,a) v'$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+If {$v > v^*$}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+State $(a^*,v^*) 
+\backslash
+gets (a,v)$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+EndIf
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return $(a^*,v^*)$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Branch and Bound Search
+\end_layout
+
+\begin_layout Plain Layout
+Prune: do not recurse down path of low values
+\end_layout
+
+\begin_layout Plain Layout
+Lower bound for 
+\begin_inset Formula $\underline{U}(s)$
+\end_inset
+
+ and Upper bound for 
+\begin_inset Formula $\overline{U}(s,a)$
+\end_inset
+
+ provided by expert knowledge
+\end_layout
+
+\begin_layout Itemize
+If best possible thing that can happen with 
+\begin_inset Formula $(s,a)$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $\overline{U}(s,a)<v^{*}$
+\end_inset
+
+ 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ we can end here 
+\end_layout
+
+\begin_layout Itemize
+NB: for 
+\begin_inset Formula $a\in A(s)$
+\end_inset
+
+ must be in descending order of upper bound to prune correctly
+\end_layout
+
+\begin_layout Itemize
+At end of exploration depth: return 
+\begin_inset Formula $\underline{U}(s)$
+\end_inset
+
+ as value estimate
+\end_layout
+
+\begin_layout Plain Layout
+Worst case complexity as Forward Search
+\end_layout
+
+\begin_layout Plain Layout
+If 
+\begin_inset Formula $\underline{U}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{U}$
+\end_inset
+
+ are true you are not compromising optimality
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Sparse Sampling
+\end_layout
+
+\begin_layout Plain Layout
+Use a Generative Model 
+\begin_inset Formula $(s',r)\sim G(s,a)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+No need for explicit 
+\begin_inset Formula $T,R$
+\end_inset
+
+ here
+\end_layout
+
+\begin_layout Plain Layout
+Algo similar to forward search except it iterates over 
+\begin_inset Formula $n$
+\end_inset
+
+ samples averaged together so that in the loop 
+\begin_inset Formula $v\gets v+(r+\gamma v')/n$
+\end_inset
+
+ instead of 
+\begin_inset Formula $v\gets v+\gamma T(s'\mid s,a)v'$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Avoids worst case complexity but still 
+\begin_inset Formula $O((n\times\left|A\right|)^{d})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+May compromise optimality
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{SparseSamplingSelectAction}{$s,d$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+If {$d=0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State 
+\backslash
+Return $(NIL,0)$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndIf
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $(a^*,v^*) 
+\backslash
+gets (NIL,-
+\backslash
+infty)$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+For {$a 
+\backslash
+in A(s)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $v 
+\backslash
+gets 0$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+For{$i 
+\backslash
+gets 1
+\backslash
+text{ to }n$}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+State $(s',r) 
+\backslash
+sim G(s,a)$
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+State $(a',v') 
+\backslash
+gets 
+\backslash
+Call {SelectAction}{s',d-1}  $
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+State $v 
+\backslash
+gets v + (r + 
+\backslash
+gamma v')/n$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+If {$v > v^*$}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+State $(a^*,v^*) 
+\backslash
+gets (a,v)$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+EndIf
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return $(a^*,v^*)$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size tiny
+\color black
+MCTS vs SS: complexity does not grow exp with d and in the limit CV 
+\begin_inset Formula $\rightarrow U^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{MctsSelectAction}{$s,d$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Loop
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State 
+\backslash
+Call {Simulate}{$s,d,
+\backslash
+pi_0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndLoop
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return arg max$_a
+\backslash
+text{ }Q(s,a)$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{Simulate}{$s,d,
+\backslash
+pi_0$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+If {$d=0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State 
+\backslash
+Return $0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndIf
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+If {$s 
+\backslash
+notin T$} 
+\backslash
+Comment{Expansion phase}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+For {$a 
+\backslash
+in A(s)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+State $(N(s,a),Q(s,a)) 
+\backslash
+gets (N_0(s,a),Q_0(s,a))$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $T=T 
+\backslash
+cup 
+\backslash
+{s
+\backslash
+}$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State 
+\backslash
+Return 
+\backslash
+Call {Rollout}{$s,d,
+\backslash
+pi_0$} 
+\backslash
+Comment{Rollout phase}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndIf
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $a 
+\backslash
+gets 
+\backslash
+text{arg max}_a
+\backslash
+text{ }Q(s,a)+c
+\backslash
+sqrt{
+\backslash
+frac{logN(s)}{N(s,a)}}$ 
+\backslash
+Comment{Search phase}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $(s',r) 
+\backslash
+sim G(s,a)$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $q 
+\backslash
+gets r+
+\backslash
+lambda$ 
+\backslash
+Call {Simulate}{$s,d-1,
+\backslash
+pi_0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $N(s,a) 
+\backslash
+gets N(s,a)+1$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $Q(s,a) 
+\backslash
+gets Q(s,a)+ 
+\backslash
+frac{q-Q(s,a)}{N(s,a)}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return $q$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{MctsRollout}{$s,d,
+\backslash
+pi_0$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+If {$d=0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State 
+\backslash
+Return $0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndIf
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $a 
+\backslash
+sim 
+\backslash
+pi_0(s)$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $(s',r) 
+\backslash
+sim G(s,a)$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return $r+
+\backslash
+lambda$ 
+\backslash
+Call {Rollout}{$s',d-1,
+\backslash
+pi_0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size tiny
+MCTS simus are run for e.g.
+ a fixed # iters (# MCTS nodes = # MCTS iters !).
+ We then execute the action that maximizes 
+\begin_inset Formula $Q(s,a)$
+\end_inset
+
+.
+ Then we can rerun MCTS to select the next action.
+ It is common to carry over the values of 
+\begin_inset Formula $N(s,a)$
+\end_inset
+
+ and 
+\begin_inset Formula $Q(s,a)$
+\end_inset
+
+ computed in the previous step.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Ch4 Synthesis: 
+\series default
+DP can be used for problems with small state and action spaces and has the
+ advantage of being guaranteed to converge to the optimal policy.
+ ADP is often used for problems with large or continuous state and action
+ spaces.
+ In these problems, DP may be intractable so an approximation to the optimal
+ policy is often good enough.
+ Online methods are used for problems with very large or continous state
+ and action spaces where finding a good approximation to the optimal policy
+ over the entire state space is intractable.
+ In an online method, the optimal policy is approximated for only the current
+ state.
+ This approximation greatly reduces the computational complexity but also
+ requires computation every time a new state is reached.
+\end_layout
+
+\begin_layout Section
+DMU Ch.5 Model Uncertainty
+\end_layout
+
+\begin_layout Standard
+Reinforcement learning is typically used in problems in which there is model
+ uncertainty, that is, an unknown transition and reward model.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Challenges:
+\end_layout
+
+\begin_layout Enumerate
+Balance exploitation with exploration
+\end_layout
+
+\begin_layout Enumerate
+Rewards may be rx long after important decisions have been made
+\end_layout
+
+\begin_layout Enumerate
+How to generalize from limited experience
+\end_layout
+
+\begin_layout Subsection
+Exploration and Exploitation
+\end_layout
+
+\begin_layout Standard
+Exploration versus exploitation describes the decision between exploiting
+ information you know and exploring to find new information.
+ If you exploit the knowledge you have, but never explore any new options,
+ you might be missing out on even better rewards.
+ If you spend all your time exploring, and never exploit what you know,
+ you might not get any reward.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Multi-armed bandits
+\end_layout
+
+\begin_layout Plain Layout
+Slot machine with 
+\begin_inset Formula $n$
+\end_inset
+
+ arms.
+ Arm 
+\begin_inset Formula $i$
+\end_inset
+
+ pays off 
+\begin_inset Formula $1$
+\end_inset
+
+ with proba 
+\begin_inset Formula $\theta_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $0$
+\end_inset
+
+ with proba 
+\begin_inset Formula $1-\theta_{i}$
+\end_inset
+
+, limited to 
+\begin_inset Formula $h$
+\end_inset
+
+ pulls
+\end_layout
+
+\begin_layout Plain Layout
+MDP: 
+\begin_inset Formula $1$
+\end_inset
+
+ state, 
+\begin_inset Formula $n$
+\end_inset
+
+ acts, unknown 
+\begin_inset Formula $R(s,a),$
+\end_inset
+
+ 
+\begin_inset Formula $h$
+\end_inset
+
+ finite horizon
+\end_layout
+
+\begin_layout Plain Layout
+Prior for 
+\begin_inset Formula $\theta_{i}:Beta(1,1)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Experience: 
+\begin_inset Formula $\omega_{i}$
+\end_inset
+
+ wins and 
+\begin_inset Formula $\ell_{i}$
+\end_inset
+
+ losses for arm 
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+Posterior for 
+\begin_inset Formula $\theta_{i}:$
+\end_inset
+
+ 
+\begin_inset Formula $B(\omega_{i}+1,\ell_{i}+1)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Better than MaxLLH estimate bad with few samples
+\end_layout
+
+\begin_layout Plain Layout
+Proba of winning: 
+\begin_inset Formula $\rho_{i}=P(win_{i}\mid\omega_{i},\ell_{i})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rho_{i}=\int_{0}^{1}\theta\times Beta(\theta\mid\omega_{i}+1,\ell_{i}+1)d\theta=\frac{\omega_{i}+1}{\omega_{i}+\ell_{i}+2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rho_{i}$
+\end_inset
+
+ is our estimate of 
+\begin_inset Formula $\theta_{i}$
+\end_inset
+
+(expectation of a random variable)
+\end_layout
+
+\begin_layout Plain Layout
+Choose arm 
+\begin_inset Formula $i$
+\end_inset
+
+ with bigger 
+\begin_inset Formula $\rho_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Ad Hoc Exploration Strategies
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\epsilon$
+\end_inset
+
+-greedy:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+With proba 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+: random arm
+\end_layout
+
+\begin_layout Itemize
+Otherwise: 
+\begin_inset Formula $\underset{i}{argmax}\:\rho_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Explore for 
+\begin_inset Formula $k$
+\end_inset
+
+ steps and then exploit
+\end_layout
+
+\begin_layout Enumerate
+Directed exploration: 
+\begin_inset Formula $P(arm_{i})\propto e^{\lambda\rho_{i}}$
+\end_inset
+
+ and softmax 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\lambda\rightarrow0$
+\end_inset
+
+ complete exploration
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\lambda\rightarrow\infty$
+\end_inset
+
+ greedy selection
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Upper Confidence Bound: prio to larger uncertainty
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+e.g.
+ 
+\begin_inset Formula $\alpha^{th}$
+\end_inset
+
+ percentile of a pdf (upper bound of a confidence interval)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha\nearrow$
+\end_inset
+
+ exploration 
+\begin_inset Formula $\nearrow$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Optimal Exploration Strategies
+\end_layout
+
+\begin_layout Plain Layout
+
+\color blue
+\begin_inset Formula $s=(\omega_{1:n},\ell_{1:n})$
+\end_inset
+
+ is our MDP state or belief state
+\end_layout
+
+\begin_layout Plain Layout
+Expected payoff after pulling arm 
+\begin_inset Formula $i$
+\end_inset
+
+ : 
+\begin_inset Formula $Q^{*}(s,i)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $U^{*}(s)=\underset{i}{max}\:Q^{*}(s,i)\text{ and \pi^{*}(s)=\underset{i}{argmax}\:Q^{*}(s,i)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Recursive Eq.
+ and use DP
+\end_layout
+
+\begin_layout Plain Layout
+Use Bellman Equation recursivity
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q^{*}(\omega_{1},\ell_{1},\ldots,\omega_{n},\ell_{n},i)=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\omega_{i}+1}{\omega_{i}+\ell_{i}+2}\left(1+U^{*}(\ldots,\omega_{i}+1,\ell_{i},\ldots)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $+\left(1-\frac{\omega_{i}+1}{\omega_{i}+\ell_{i}+2}\right)\left(0+U^{*}(\ldots,\omega_{i},\ell_{i}+1,\ldots)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+With no pulls left: 
+\begin_inset Formula $U^{*}(\omega_{1},\ell_{1},\ldots,\omega_{n},\ell_{n})=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+resolve backwards and recursively
+\end_layout
+
+\begin_layout Plain Layout
+From 
+\begin_inset Formula $\sum_{i}\left(\omega_{i}+\ell_{i}\right)=h$
+\end_inset
+
+ to 
+\begin_inset Formula $\sum_{i}\left(\omega_{i}+\ell_{i}\right)=h-1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\color teal
+With 1 pull left i.e.
+ when 
+\begin_inset Formula $\sum_{i}\left(\omega_{i}+\ell_{i}\right)=h-1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\color teal
+\begin_inset Formula $Q^{*}(\omega_{1},\ell_{1},\ldots,\omega_{n},\ell_{n},i)=\frac{\omega_{i}+1}{\omega_{i}+\ell_{i}+2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\color teal
+\begin_inset Formula $U^{*}(s)=\underset{i}{max}\frac{\omega_{i}+1}{\omega_{i}+\ell_{i}+2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+And so on
+\end_layout
+
+\begin_layout Plain Layout
+For 
+\begin_inset Formula $\infty$
+\end_inset
+
+ horizon: cf 
+\shape italic
+Gittins allocation index
+\shape default
+ method 
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+\color red
+Issue: computation and memory via the number of belief states 
+\begin_inset Formula $\left(2n\right)^{h}$
+\end_inset
+
+ grows exponentially in 
+\begin_inset Formula $h$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Maximum Likelihood Model-Based Methods
+\end_layout
+
+\begin_layout Standard
+Solving problems with multiple states is more challenging than bandit problems.
+ Bcz 
+\color blue
+we need to plan to visit
+\color inherit
+ 
+\color blue
+states
+\color inherit
+ to determine their value
+\end_layout
+
+\begin_layout Standard
+One RL approach: estimates 
+\begin_inset Formula $T$
+\end_inset
+
+ and 
+\begin_inset Formula $R$
+\end_inset
+
+ models directly from experience
+\end_layout
+
+\begin_layout Standard
+Iteratively:
+\end_layout
+
+\begin_layout Itemize
+Update counts: 
+\begin_inset Formula $N(s,a,s'),N(s,a)=\sum_{s'}N(s,a,s'),\rho(s,a)=\sum r,R(s,a)=\frac{\rho(s,a)}{N(s,a)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Estimate 
+\begin_inset Formula $T,R$
+\end_inset
+
+ based on counts
+\end_layout
+
+\begin_layout Itemize
+Update 
+\begin_inset Formula $Q$
+\end_inset
+
+ based on estimated 
+\begin_inset Formula $T,R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color red
+Issue: compute expensive (so we may prefer to update only e.g.
+ every 5 steps of experiments)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{MaximumLlhModelBasedRL}{} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $t 
+\backslash
+gets 0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $s_0 
+\backslash
+gets$ initial state
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State Initialize $N,
+\backslash
+rho$ and $Q$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Loop 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State Choose action $a_t$ based on some explor strat
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State Observe new state $s_{t+1}$ and reward $r_t$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $N(s_t,a_t,s_{t+1}) 
+\backslash
+gets N(s_t,a_t,s_{t+1}) + 1$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $
+\backslash
+rho(s_t,a_t) 
+\backslash
+gets 
+\backslash
+rho(s_t,a_t) + r_t$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State Update $Q$ based on revised estimate of $T,R$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $t 
+\backslash
+gets t+1$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndLoop
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Online
+\series default
+: in the sense that we are getting new data as we interact with the world.
+ Once 
+\begin_inset Formula $T,R$
+\end_inset
+
+ are estimated we could apply sparse sampling, Branch & Bound or MCTS ...
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Offline
+\series default
+: as we are computing the policy for the 
+\series bold
+full
+\series default
+ state space
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+DP is an offline method
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Randomized Updates: Dyna algo
+\end_layout
+
+\begin_layout Plain Layout
+Instead of using DP to update 
+\begin_inset Formula $Q$
+\end_inset
+
+ in line 
+\begin_inset Formula $10$
+\end_inset
+
+ above just do
+\end_layout
+
+\begin_layout Plain Layout
+For the current state:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q(s,a)\gets R(s,a)+\gamma\sum_{s'}T(s'\mid s,a)\underset{a'}{max}Q(s',a')$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+With 
+\begin_inset Formula $R,T$
+\end_inset
+
+ estimates
+\end_layout
+
+\begin_layout Plain Layout
+Then perform some number of additional updates of Q for random states and
+ actions depending on how much time available between decisions
+\end_layout
+
+\begin_layout Plain Layout
+Then use 
+\begin_inset Formula $Q$
+\end_inset
+
+ to choose an action (softmax or whatever other exploration strategy)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Prioritized Sweeping
+\end_layout
+
+\begin_layout Plain Layout
+Use a priority queue to help identify which states require updating 
+\begin_inset Formula $Q$
+\end_inset
+
+ the most
+\end_layout
+
+\begin_layout Plain Layout
+Efficient updates vs Model-Free and Eligibility traces !
+\end_layout
+
+\begin_layout Plain Layout
+The process of updating the highest prio state in the queue coninues for
+ some fixed # iterations or until the queue becomes empty
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{PrioritizedSwepping}{s} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State Increase prio of s to $
+\backslash
+infty$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+While {prio queue is not empty}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $s 
+\backslash
+gets $ highest prio state
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $
+\backslash
+Call {Update}{s}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndWhile
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{Update}{s} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $u 
+\backslash
+gets U(s)$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $U(s) 
+\backslash
+gets max_a 
+\backslash
+: [R(s,a) + 
+\backslash
+gamma 
+\backslash
+: 
+\backslash
+sum_{s'} T(s' 
+\backslash
+mid s,a)U(s')]$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+For {$(s',a') 
+\backslash
+in pred(s)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $p 
+\backslash
+gets T(s 
+\backslash
+mid s',a') 
+\backslash
+times |U(s)-u|$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State Increase priority of $s'$ to $p$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Bayesian Model-Based Methods
+\end_layout
+
+\begin_layout Standard
+Optimally balance Exploration with Exploitation without relying on heuristics
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T(s'\mid s,a)$
+\end_inset
+
+ model parameters: 
+\begin_inset Formula $\theta$
+\end_inset
+
+ with 
+\begin_inset Formula $|S|^{2}\times|\mathcal{A}|$
+\end_inset
+
+ components representing every possible transition probability
+\end_layout
+
+\begin_layout Standard
+The component of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ that governs the transition probability 
+\begin_inset Formula $T(s'\mid s,a)$
+\end_inset
+
+ is denoted 
+\begin_inset Formula $\theta_{(s,a,s')}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta_{(s,a)}$
+\end_inset
+
+ is a vector of dim 
+\begin_inset Formula $|\mathcal{S}|\times1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color red
+Discrete state space here =>Dirichlet distributions
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Beliefs over Model Parameters
+\end_layout
+
+\begin_layout Plain Layout
+Prior: 
+\begin_inset Formula $b_{0}(\theta)=\prod_{s}\prod_{a}Dir(\theta_{(s,a)}\mid\overset{\rightarrow}{\alpha_{(s,a)}})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Posterior: 
+\begin_inset Formula $b_{t}(\theta)=\prod_{s}\prod_{a}Dir(\theta_{(s,a)}\mid\overset{\rightarrow}{\alpha_{(s,a)}}+\overset{\rightarrow}{m_{(s,a)}})$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+With 
+\begin_inset Formula $\overset{\rightarrow}{m_{(s,a)}}$
+\end_inset
+
+: a vector of transition counts
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+BAMDP: Bayes-Adaptive MDP
+\end_layout
+
+\begin_layout Plain Layout
+Augmented State: 
+\begin_inset Formula $(s,b)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathcal{S}$
+\end_inset
+
+ discrete, 
+\series bold
+\color red
+
+\begin_inset Formula $\mathcal{B}$
+\end_inset
+
+ high dim continuous
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $T$
+\end_inset
+
+ model represented via 
+\begin_inset Formula $\theta$
+\end_inset
+
+ : what we are uncertain about
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $T(s',b'\mid s,b,a)$
+\end_inset
+
+: you start in state 
+\begin_inset Formula $s$
+\end_inset
+
+ with belief 
+\begin_inset Formula $b$
+\end_inset
+
+ and execute action 
+\begin_inset Formula $a$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+We transit to a new belief and to a new state
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $T(s',b'\mid s,b,a)=\delta_{\tau(s,b,a,s')}(b')P(s'\mid s,b,a)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $b'$
+\end_inset
+
+ is computed fully deterministically.
+ Dir Bayes update ! Just update the pseudo-counts ! So 
+\begin_inset Formula $\delta$
+\end_inset
+
+ is 1 or 0
+\end_layout
+
+\begin_layout Itemize
+With belief 
+\begin_inset Formula $\theta_{(s,a)}\sim Dir(\alpha_{1},\alpha_{2},\alpha_{3})\Longrightarrow P(s_{2}\mid s,a)=\frac{\alpha_{2}}{\alpha_{1}+\alpha_{2}+\alpha_{3}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(s'\mid s,b,a)=\int_{\theta}b(\theta)P(s'\mid s,\theta,a)d\theta=\int_{\theta}b(\theta)\theta_{(s,a,s')}d\theta=\frac{\alpha_{(s,a,s')}}{\sum_{s''}\theta_{(s,a,s'')}}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+It is an expectation over a Dirichlet distribution
+\end_layout
+
+\begin_layout Plain Layout
+Mean of a Dirichlet distribution: 
+\begin_inset Formula $\mathbb{E}[X_{i}]=\frac{\alpha_{i}}{\sum_{k}\alpha_{k}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+With lots of experiences: we are converging to MaxLlh estimate.
+\end_layout
+
+\begin_layout Plain Layout
+With few experiences: we are smoothing things.
+\end_layout
+
+\begin_layout Plain Layout
+Exemple of evolutions:
+\end_layout
+
+\begin_layout Itemize
+Prior: unniform 
+\begin_inset Formula $Dir(1,\ldots,1)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Then sthg like a gaussian
+\end_layout
+
+\begin_layout Itemize
+Then at 
+\begin_inset Formula $\infty$
+\end_inset
+
+ a spike , the MaxLLH
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Dirichlet Distribution
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $P(\theta)=\frac{\Gamma(\alpha_{0})}{\prod_{i}\Gamma(\alpha_{i})}\prod_{i}\theta_{i}^{\alpha_{i}-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Gamma(x+1)=x\Gamma(x)$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta=(\theta_{1},\ldots,\theta_{n})$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbb{E}[\theta_{i}]=\int\theta_{i}P(\theta)d\theta=$
+\end_inset
+
+
+\begin_inset Formula $\frac{\alpha_{i}}{\sum_{k}\alpha_{k}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+BAMDP solution: solving the optimal function over the belief space
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $U^{*}(s,b)=\underset{a}{max}[R(s,a)+\gamma\;\sum_{s'}P(s'\mid s,b,a)U^{*}(s',\tau(s,b,a,s'))$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+We can not use VI or PI bcz 
+\begin_inset Formula $b$
+\end_inset
+
+ is continuous
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ approx methods or online methods
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+BAMDP solution: Thompson sampling
+\end_layout
+
+\begin_layout Plain Layout
+Idea: 
+\end_layout
+
+\begin_layout Itemize
+Sample a transition model from our Dir distribution
+\end_layout
+
+\begin_layout Itemize
+Solve it with DP
+\end_layout
+
+\begin_layout Itemize
+Take the greedy action
+\end_layout
+
+\begin_layout Itemize
+Gather new data and update the pseudo-counts
+\end_layout
+
+\begin_layout Plain Layout
+And so on ...
+\end_layout
+
+\begin_layout Plain Layout
+Tendency to over explore but it is REALLY GOOD: no need to rely on ad-hoc
+ exploration strategies
+\end_layout
+
+\begin_layout Plain Layout
+Resolving MDP at every step can be expensive
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Subsection
+Model-Free Methods
+\end_layout
+
+\begin_layout Standard
+We do not try to estimate 
+\begin_inset Formula $T,R$
+\end_inset
+
+ but we try to learn 
+\begin_inset Formula $Q\text{ or }U$
+\end_inset
+
+ directly.
+\end_layout
+
+\begin_layout Standard
+For really large pbs, you do not want to store huge 
+\begin_inset Formula $T$
+\end_inset
+
+ matrix (wildfire: 
+\begin_inset Formula $2^{100x100}$
+\end_inset
+
+states) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+pretend you do not know it and just run a bunch of simus
+\end_layout
+
+\begin_layout Standard
+Downside: you need a WHOLE BUNCH OF SAMPLES
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Incremental Estimation
+\end_layout
+
+\begin_layout Plain Layout
+X a random variable, try to estimate the mean: 
+\begin_inset Formula $\mu=\mathbb{E}[X]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+With samples 
+\begin_inset Formula $x_{1},\ldots,x_{n}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\hat{x}_{n}=\frac{1}{n}\sum_{i=1}^{n}x_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longleftrightarrow\hat{x}_{n}=\hat{x}_{n-1}+\frac{1}{n}(x_{n}-\hat{x}_{n-1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\hat{x}\gets\hat{x}+\alpha\left(n\right)$
+\end_inset
+
+
+\begin_inset Formula $\left(x-\hat{x}\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\color blue
+Key equation in Temporal Difference Learning
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\color blue
+\begin_inset Formula $\hat{x}\gets\hat{x}+\alpha$
+\end_inset
+
+
+\begin_inset Formula $\left(x-\hat{x}\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+With 
+\begin_inset Formula $x$
+\end_inset
+
+ new meas and 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+ current estimate
+\end_layout
+
+\begin_layout Plain Layout
+Temporal difference error: 
+\begin_inset Formula $x-\hat{x}$
+\end_inset
+
+ is the difference between a sample and our previous estimate
+\end_layout
+
+\begin_layout Plain Layout
+Constant LR 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ decays the influence of past samples exponentially
+\end_layout
+
+\begin_layout Plain Layout
+And as we collect experience, more recent examples based on better 
+\begin_inset Formula $Q$
+\end_inset
+
+ , are better
+\end_layout
+
+\begin_layout Plain Layout
+A larger LR means new samples have a greater effect on the current estimate
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Q(s,a)$
+\end_inset
+
+ represents the utility of taking action 
+\begin_inset Formula $a$
+\end_inset
+
+ in state 
+\begin_inset Formula $s$
+\end_inset
+
+.
+ It assumes after taking this action, you act optimally afterwards.
+ 
+\begin_inset Formula $Q$
+\end_inset
+
+ represents the utility of a specific state-action combination.
+ On the other hand, 
+\begin_inset Formula $U(s)$
+\end_inset
+
+ is the utility of being in a specific state regardless of action.
+ Each 
+\begin_inset Formula $U$
+\end_inset
+
+ is the best Q-value for a given state, considering all possible actions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q(s,a)=R(s,a)+\sum_{s'}T(s'\mid s,a)\:\underset{a'}{max}\;Q(s',a')
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Q-learning
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q(s,a)=R(s,a)+\gamma\:\sum_{s'}T(s'\mid s,a)U(s')$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+With 
+\begin_inset Formula $U(s')=\underset{a'}{max\:}Q(s',a')$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\color teal
+How to update 
+\begin_inset Formula $Q$
+\end_inset
+
+ directly after we observe 
+\begin_inset Formula $r$
+\end_inset
+
+ and 
+\begin_inset Formula $s'$
+\end_inset
+
+ ?
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q(s,a)\gets Q(s,a)+\alpha\left(\mathbf{r+\gamma\:\underset{a'}{max}\:Q(s',a')}-Q(s,a)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This update + good exploration strategy 
+\begin_inset Formula $\Rightarrow Q(s,a)\rightarrow Q^{*}(s,a)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can init 
+\begin_inset Formula $Q$
+\end_inset
+
+ to values other than 
+\begin_inset Formula $0$
+\end_inset
+
+ to encode any prior knowledge we may have
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{QLearning}{} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $t 
+\backslash
+gets 0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $s_0 
+\backslash
+gets initial state$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State Initialize $Q$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Loop 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State Choose $a_t$ based on $Q$ and some Exploration
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State Observe new state $s_{t+1}$ and reward $r_t$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $Q(s_t,a_t) 
+\backslash
+gets Q(s_t,a_t) + 
+\backslash
+alpha (r_t + 
+\backslash
+gamma 
+\backslash
+: max_a 
+\backslash
+: Q(s_{t+1}, a) - Q(s_t,a_t))$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $t 
+\backslash
+gets t+1$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndLoop
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Q-learning and Sarsa both work on the principle of incremental estimation
+ but Sarsa has the advantage over Q-learning of not needing to iterate over
+ all possible actions
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+SARSA
+\end_layout
+
+\begin_layout Plain Layout
+Uses 
+\begin_inset Formula $(s_{t},a_{t},r_{t},s_{t+1},a_{t+1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\color teal
+\begin_inset Formula $Q(s_{t},a_{t})\gets Q(s_{t},a_{t})+\alpha\left(\mathbf{r_{t}+\gamma\:Q(s_{t+1},a_{t+1})}-Q(s_{t},a_{t})\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\color magenta
+Performs in general better than Q-learning (empirically)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Q-learning and SARSA are SUPER SLOW to CV
+\end_layout
+
+\begin_layout Standard
+You need to re-experience a TON of TIMES in order to backpropagate your
+ (spare or delayed) rewards.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Sarsa
+\begin_inset Formula $(\lambda)$
+\end_inset
+
+ 
+\series default
+is a modified version of Sarsa that assigns credit to states and actions
+ that were encountered on the way to a reward state.
+ This assignment of reward to intermediate states and actions is referred
+ to as using eligibility traces.
+ Eligibility traces can speed up learning for problems that have sparse
+ rewards such games that result in a win or loss at the end.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Eligibility Traces
+\end_layout
+
+\begin_layout Plain Layout
+Idea: backpropagate and keep track of what you have experienced so far and
+ automatically decay it by a factor of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[node distance=0.6cm, >=stealth'] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (A) [events, label=$
+\backslash
+gamma^4 
+\backslash
+lambda^4 {
+\backslash
+Delta}$] {$A$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (B) [events, label=$
+\backslash
+gamma^3 
+\backslash
+lambda^3 {
+\backslash
+Delta}$, right = of A] {$B$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (C) [events, label=$
+\backslash
+gamma^2 
+\backslash
+lambda^2 {
+\backslash
+Delta}$, right = of B] {$C$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (D) [events, label=$
+\backslash
+gamma 
+\backslash
+lambda {
+\backslash
+Delta}$ , right = of C] {$D$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (E) [events, label=${
+\backslash
+Delta=
+\backslash
+alpha
+\backslash
+delta}$, right = of D] {$E$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (A) -- (B); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (B) -- (C); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (C) -- (D); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [->] (D) -- (E);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+With Q-learning and SARSA, states 
+\begin_inset Formula $A,B,C$
+\end_inset
+
+ are not updated.
+ But we want to assign credit to past states and actions leading to a good
+ reward: nevertheless closer states shall get bigger credit.
+\end_layout
+
+\begin_layout Plain Layout
+We keep track of an exponentially decaying visit count 
+\begin_inset Formula $N(s,a)$
+\end_inset
+
+ for all state-action pairs.
+\end_layout
+
+\begin_layout Plain Layout
+Although the impact is especially pronounced in env with sparse reward,
+ the algo can speed learning in general: 
+\begin_inset Formula $Q(\lambda),SARSA(\lambda)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{SarsaLambdaLearning}{$
+\backslash
+lambda$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State Initialize Q and N
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $t 
+\backslash
+gets 0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $s_0,a_0 
+\backslash
+gets$ initial state and action
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Loop 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State Observe reward $r_t$ and new state $s_{t+1}$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State Choose action $a_{t+1}$ based on Exploration
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $N(s_t,a_t) 
+\backslash
+gets N(s_t,a_t) + 1$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $
+\backslash
+delta 
+\backslash
+gets r_t + 
+\backslash
+gamma 
+\backslash
+: Q(s_{t+1}, a_{t+1}) - Q(s_t,a_t)$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+For{$s 
+\backslash
+in S$}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+For{$a 
+\backslash
+in A$}
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\backslash
+State $Q(s,a) 
+\backslash
+gets Q(s,a) + 
+\backslash
+alpha 
+\backslash
+delta N(s,a)$
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\backslash
+State $N(s,a) 
+\backslash
+gets 
+\backslash
+gamma 
+\backslash
+lambda N(s,a)$
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $t 
+\backslash
+gets t+1$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndLoop
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Model-based vs Model-free RL
+\end_layout
+
+\begin_layout Standard
+Model-based approaches can usually find a better policy than model-free
+ approaches at the cost of being more computationally expensive.
+\end_layout
+
+\begin_layout Subsection
+Generalization
+\end_layout
+
+\begin_layout Standard
+Generalization is needed when the problem is large enough that we cannot
+ experience all state-action pairs.
+ We therefore need to generalize from limited experience to states that
+ we have not visited.
+\end_layout
+
+\begin_layout Itemize
+Interpolation (multilinear or simplex-based) can be used as a local approximatio
+n method.
+ 
+\end_layout
+
+\begin_layout Itemize
+Perceptrons or neural networks can be used as global approximators for the
+ Q-values.
+\end_layout
+
+\begin_layout Standard
+Same formula for local and global approximation but different interpretations
+\end_layout
+
+\begin_layout Standard
+We want to approximate from 
+\begin_inset Formula $Q(s,a)$
+\end_inset
+
+ or 
+\begin_inset Formula $U(s)$
+\end_inset
+
+ but not from 
+\begin_inset Formula $\pi(s)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Local Approximation
+\end_layout
+
+\begin_layout Plain Layout
+Idea, modify e.g.
+ Q-learning with linear approximation: 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underset{a}{max}\;Q(s_{t+1},a)\approx\underset{a}{max}\;\theta^{T}\beta(s_{t+1},a)$
+\end_inset
+
+ or 
+\begin_inset Formula $U(s)\approx\theta^{T}\beta(s)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Reduced number of estimates of 
+\begin_inset Formula $Q(s,a)$
+\end_inset
+
+ stored in 
+\begin_inset Formula $\theta=[\theta_{(s,a)}]$
+\end_inset
+
+ vector
+\end_layout
+
+\begin_layout Itemize
+Weighted s.t.
+ 
+\begin_inset Formula $\sum_{s'}\beta(s',a)=1$
+\end_inset
+
+, typically distance related
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Global Approximation
+\end_layout
+
+\begin_layout Plain Layout
+Typical example: use a Neural Network that can represent non-linear functions
+\end_layout
+
+\begin_layout Plain Layout
+CV when using this form of function approximation is not guaranteed but
+ it can be good in practice
+\end_layout
+
+\begin_layout Plain Layout
+Safety issue with NN trained through sampling: if you do not train against
+ lot of failure cases, the learned policy may not be very robust
+\end_layout
+
+\begin_layout Itemize
+Augment RL to capture safety bounds
+\end_layout
+
+\begin_layout Itemize
+Train it as usual but then 
+\series bold
+proof
+\series default
+ the result can never brings you into an undesirable state
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Q-learning with global linear approximation
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q(s,a)=\theta^{T}\beta(s,a)$
+\end_inset
+
+ e.g.
+ 
+\begin_inset Formula $=\theta_{1}s+\theta_{2}a+\theta_{3}sa+\theta_{4}s^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Require some prior knowledge to generate appropriate basis functions.
+ For 
+\begin_inset Formula $U(s)$
+\end_inset
+
+ you may think Taylor series !
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\theta\gets\theta+\alpha(r_{t}+\gamma\;\underset{a}{max}\;\theta^{T}\beta(s_{t+1},a)-\theta^{T}\beta(s_{t},a_{t}))\beta(s_{t},a_{t})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $vector\gets vector+\alpha\;salar\times vector$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Remember: #policies IS NOT policy matrix size ! For wildfire: #policies
+\begin_inset Formula $=4^{2^{100^{2}}\times100^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Direct Policy Search: when policy space is limited
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{multicols}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
