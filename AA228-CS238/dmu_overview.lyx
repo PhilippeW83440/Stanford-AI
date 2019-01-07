@@ -887,7 +887,7 @@ We define a utility related to preferences (or objectives or costs) so that
  it follows 4 axioms
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \series bold
 \begin_inset Box Boxed
@@ -1007,7 +1007,7 @@ Bayesian Network + Utility
  Decision Network 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \series bold
 \begin_inset Box Boxed
@@ -1354,8 +1354,7 @@ end{minipage}
 \end_layout
 
 \begin_layout Plain Layout
-From there, any of the exact or approx inference method can be used to evaluate
- 
+Then any inference method can be used to evaluate 
 \begin_inset Formula $P(d\mid t^{1},o_{1}^{1})$
 \end_inset
 
@@ -1374,11 +1373,11 @@ Inference pb: what is the distribution of the variables that are parents
 
 \begin_layout Plain Layout
 To decide whether to apply a treatment compare 
-\begin_inset Formula $EU(t^{1}\mid o_{1}^{1})$
+\begin_inset Formula $E[U(t^{1}\mid o_{1}^{1})]$
 \end_inset
 
  vs 
-\begin_inset Formula $EU(t^{0}\mid o_{1}^{1})$
+\begin_inset Formula $E[U(t^{0}\mid o_{1}^{1})]$
 \end_inset
 
 
@@ -1768,20 +1767,6 @@ The proba of observing
 \series bold
  
 \begin_inset Formula $\mathbf{O(o\mid s)}$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-The observation can also depend on the action 
-\begin_inset Formula $a$
-\end_inset
-
- : 
-\series bold
-
-\begin_inset Formula $\mathbf{O(o\mid s,a)}$
 \end_inset
 
  
@@ -2401,7 +2386,7 @@ This update + good exploration strategy
 status open
 
 \begin_layout Plain Layout
-Decision Making under Ucertainty for Urban Driving
+Decision Making under Uncertainty for Urban Driving
 \end_layout
 
 \end_inset
@@ -2433,7 +2418,7 @@ smartdiagramset{set color list={blue!30,green!30,green!30,red!30}, back
 
 \backslash
 smartdiagram[flow diagram:horizontal]{Sensors Fusion, Route and Behav.
- Planner, Motion Planner: Tactic and Geometry, Motion Control}
+ Planner, Motion Planner, Motion Control}
 \end_layout
 
 \end_inset
@@ -2459,7 +2444,7 @@ smartdiagram[flow diagram:horizontal]{Sensors Fusion, Route and Behav.
 status open
 
 \begin_layout Plain Layout
-Decision Making under Ucertainty for Urban Driving
+Decision Making under Uncertainty: Volvo Trucks Thesis
 \end_layout
 
 \end_inset
@@ -2470,7 +2455,48 @@ Decision Making under Ucertainty for Urban Driving
 \begin_deeper
 \begin_layout Standard
 \begin_inset Graphics
-	filename img/act.svg
+	filename img/volvo1.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/volvo2.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Decision Making under Uncertainty for Urban Driving
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename img/AnticolisionTests.png
 	lyxscale 50
 	scale 50
 
@@ -2492,7 +2518,7 @@ Decision Making under Ucertainty for Urban Driving
 status open
 
 \begin_layout Plain Layout
-Decision Making under Ucertainty for Urban Driving
+Decision Making under Uncertainty for Urban Driving
 \end_layout
 
 \end_inset
@@ -2629,7 +2655,7 @@ Reward model
 status open
 
 \begin_layout Plain Layout
-Decision Making under Ucertainty for Urban Driving
+Decision Making under Uncertainty for Urban Driving
 \end_layout
 
 \end_inset
@@ -2742,6 +2768,15 @@ POMCP: MCTS with POMDP
 \end_layout
 
 \begin_layout Frame
+\begin_inset Argument 3
+status open
+
+\begin_layout Plain Layout
+shrink=20
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -2750,7 +2785,598 @@ POMCP: MCTS with POMDP
 status open
 
 \begin_layout Plain Layout
-Decision Making under Ucertainty for Urban Driving
+POMCP: MCTS with POMDP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{columns}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.45
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{SelectAction}{$b,d$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $h 
+\backslash
+gets 
+\backslash
+emptyset$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Loop
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $s 
+\backslash
+sim b$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State 
+\backslash
+Call {Simulate}{$s,h,d$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndLoop
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return arg max$_a
+\backslash
+text{ }Q(h,a)$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.45
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{Simulate}{$s,h,d$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+If {$d=0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State 
+\backslash
+Return $0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndIf
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $a 
+\backslash
+gets 
+\backslash
+text{arg max}_a
+\backslash
+text{ }Q(h,a)+c
+\backslash
+sqrt{
+\backslash
+frac{logN(h)}{N(h,a)}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $(s',o,r) 
+\backslash
+sim G(s,a)$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $o_{class}, ttc 
+\backslash
+gets 
+\backslash
+Call {ClusterizeObs}{$s',o$}$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+If {$hao_{class} 
+\backslash
+notin T$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+For {$a 
+\backslash
+in A(s)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+State $(N(h,a),Q(h,a)) 
+\backslash
+gets (N_0(h,a),Q_0(h,a))$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $o_{class}^{id}  = o_{class}, o_{class}^{ttc} = ttc, o_{class}^{raw}
+ = o$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $T=T 
+\backslash
+cup 
+\backslash
+{hao_{class}
+\backslash
+}$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State 
+\backslash
+Return 
+\backslash
+Call {Rollout}{$s,d,
+\backslash
+pi_0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+ElsIf {ttc $< o_{class}^{ttc}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $o_{class}^{ttc} = ttc, o_{class}^{raw} = o$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndIf
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $q 
+\backslash
+gets r+
+\backslash
+lambda$ 
+\backslash
+Call {Simulate}{$s',hao_{class},d-1$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $N(h,a) 
+\backslash
+gets N(h,a)+1$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $Q(h,a) 
+\backslash
+gets Q(h,a)+ 
+\backslash
+frac{q-Q(h,a)}{N(h,a)}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return $q$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.45
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{ClusterizeObs}{$s', o$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $ttc 
+\backslash
+gets 
+\backslash
+Call {SmallestTimeToCollision}{$s',o$}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $o_{class} = floor(min(ttc, 11))$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return $o_{class}, ttc$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Function{Rollout}{$b,d,
+\backslash
+pi_0$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+If {$d=0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State 
+\backslash
+Return $0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndIf
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $a 
+\backslash
+sim 
+\backslash
+pi_0(b)$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $s 
+\backslash
+sim b$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $(s',o,r) 
+\backslash
+sim G(s,a)$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $b' 
+\backslash
+gets 
+\backslash
+Call {UpdateBelief}{$b,a,o$}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State 
+\backslash
+Return $r+
+\backslash
+lambda$ 
+\backslash
+Call {Rollout}{$b',d-1,
+\backslash
+pi_0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndFunction
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{columns}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Decision Making under Uncertainty for Urban Driving
 \end_layout
 
 \end_inset
@@ -3022,5 +3648,35 @@ policy POMDP
 
 \end_layout
 
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+References
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintAll"
+bibfiles "dmu"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_body
 \end_document
