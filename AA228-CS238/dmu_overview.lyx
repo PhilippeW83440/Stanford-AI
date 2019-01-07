@@ -23,6 +23,8 @@
 \usetikzlibrary{fit}
 \usetikzlibrary{bayesnet}
 \usepackage{pgfplots}
+
+\usepackage{smartdiagram}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -871,7 +873,7 @@ end{algorithmic}
 status open
 
 \begin_layout Plain Layout
-Objectives: utility or value function
+Objectives: Utility or Value function
 \end_layout
 
 \end_inset
@@ -2129,5 +2131,896 @@ Sparse Sampling, MCTS (Monte Carlo Tree Search)
 
 \end_deeper
 \end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Reinforcement Learning Model-Free
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Incremental Estimation
+\end_layout
+
+\begin_layout Plain Layout
+X a random variable, try to estimate the mean: 
+\begin_inset Formula $\mu=\mathbb{E}[X]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+With samples 
+\begin_inset Formula $x_{1},\ldots,x_{n}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\hat{x}_{n}=\frac{1}{n}\sum_{i=1}^{n}x_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Longleftrightarrow\hat{x}_{n}=\hat{x}_{n-1}+\frac{1}{n}(x_{n}-\hat{x}_{n-1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\hat{x}\gets\hat{x}+\alpha\left(n\right)$
+\end_inset
+
+
+\begin_inset Formula $\left(x-\hat{x}\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\color blue
+Key equation in Temporal Difference Learning
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\color blue
+\begin_inset Formula $\hat{x}\gets\hat{x}+\alpha$
+\end_inset
+
+
+\begin_inset Formula $\left(x-\hat{x}\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+With 
+\begin_inset Formula $x$
+\end_inset
+
+ new meas and 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+ current estimate
+\end_layout
+
+\begin_layout Plain Layout
+Temporal difference error: 
+\begin_inset Formula $x-\hat{x}$
+\end_inset
+
+ is the difference between a sample and our previous estimate
+\end_layout
+
+\begin_layout Plain Layout
+Constant LR 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ decays the influence of past samples exponentially
+\end_layout
+
+\begin_layout Plain Layout
+And as we collect experience, more recent examples based on better 
+\begin_inset Formula $Q$
+\end_inset
+
+ , are better
+\end_layout
+
+\begin_layout Plain Layout
+A larger LR means new samples have a greater effect on the current estimate
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Reinforcement Learning Model-Free
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "97col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Q-learning
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q(s,a)=R(s,a)+\gamma\:\sum_{s'}T(s'\mid s,a)U(s')$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+With 
+\begin_inset Formula $U(s')=\underset{a'}{max\:}Q(s',a')$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\color teal
+How to update 
+\begin_inset Formula $Q$
+\end_inset
+
+ directly after we observe 
+\begin_inset Formula $r$
+\end_inset
+
+ and 
+\begin_inset Formula $s'$
+\end_inset
+
+ ?
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q(s,a)\gets Q(s,a)+\alpha\left(\mathbf{r+\gamma\:\underset{a'}{max}\:Q(s',a')}-Q(s,a)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This update + good exploration strategy 
+\begin_inset Formula $\Rightarrow Q(s,a)\rightarrow Q^{*}(s,a)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Decision Making under Ucertainty for Urban Driving
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+smartdiagramset{set color list={blue!30,green!30,green!30,red!30}, back
+ arrow disabled=true}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+smartdiagram[flow diagram:horizontal]{Sensors Fusion, Route and Behav.
+ Planner, Motion Planner: Tactic and Geometry, Motion Control}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Decision Making under Ucertainty for Urban Driving
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename img/act.svg
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Decision Making under Ucertainty for Urban Driving
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Flex Bold
+status open
+
+\begin_layout Plain Layout
+States
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+{(x,y,v_x,v_y)_{ego},{(x,y,v_x,v_y)_{obj}}_{1..n}
+\backslash
+}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Bold
+status open
+
+\begin_layout Plain Layout
+Actions
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$a_{longitudinal} 
+\backslash
+in [-2, -1, 0, 1, 2]$ $m.s^{-2}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Bold
+status open
+
+\begin_layout Plain Layout
+Observations
+\end_layout
+
+\end_inset
+
+: States observed via a sensor 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Bold
+status open
+
+\begin_layout Plain Layout
+Transition model
+\end_layout
+
+\end_inset
+
+: Linear Gaussian Dynamics, Kalman filter type with 
+\begin_inset Formula $T(s'\mid s,a)=\mathcal{N}(s'\mid T_{s}s+T_{a}a,\Sigma_{s})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Bold
+status open
+
+\begin_layout Plain Layout
+Observation model
+\end_layout
+
+\end_inset
+
+: Linear Gaussian Observation sensor model 
+\begin_inset Formula $O(o\mid s')=\mathcal{N}(o\mid O_{s}s',\Sigma_{o})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Bold
+status open
+
+\begin_layout Plain Layout
+Reward model
+\end_layout
+
+\end_inset
+
+: accounts for efficiency (Time To Goal), comfort (Hard Braking) and safety
+ (Time To Collision)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Decision Making under Ucertainty for Urban Driving
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Transition model: Linear Gaussian Dynamics, Kalman filter type with 
+\begin_inset Formula $T(s'\mid s,a)=\mathcal{N}(s'\mid T_{s}s+T_{a}a,\Sigma_{s})$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $s'=\begin{bmatrix}1 & 0 & dt & 0\\
+0 & 1 & 0 & dt\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{bmatrix}s+\begin{bmatrix}\frac{dt^{2}}{2} & 0\\
+0 & \frac{dt^{2}}{2}\\
+dt & 0\\
+0 & dt
+\end{bmatrix}a=T_{s}s+T_{a}a$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $s'=\begin{bmatrix}x_{k+1}\\
+y_{k+1}\\
+x'_{k+1}\\
+y'_{k+1}
+\end{bmatrix}$
+\end_inset
+
+ and 
+\begin_inset Formula $s=\begin{bmatrix}x_{k}\\
+y_{k}\\
+x'_{k}\\
+y'_{k}
+\end{bmatrix}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\begin{cases}
+x_{k+1}=x_{k}+x'_{k+1}dt+x''_{k+1}\frac{dt^{2}}{2} & +\mathcal{N}(0,\sigma_{x})\\
+y_{k+1}=y_{k}+y'_{k+1}dt+y''_{k+1}\frac{dt^{2}}{2} & +\mathcal{N}(0,\sigma_{y})\\
+x'_{k+1}=x'_{k}+x''_{k}dt & +\mathcal{N}(0,\sigma_{x'})\\
+y'_{k+1}=y'_{k}+y''_{k}dt & +\mathcal{N}(0,\sigma_{y'})
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+POMCP: MCTS with POMDP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\series bold
+\begin_inset Graphics
+	filename img/BasicPOMCP-experimental_ttc1.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Decision Making under Ucertainty for Urban Driving
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Paper: 
+\begin_inset CommandInset href
+LatexCommand href
+name "AA228 Final Project"
+target "https://web.stanford.edu/class/aa228/reports/2018/final100.pdf"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Demo: 
+\begin_inset CommandInset href
+LatexCommand href
+name "online demo"
+target "https://github.com/PhilippeW83440/ACT"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Benchmark results
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+% Collisions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Time To Goal
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hard Breaking
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+policy_v0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+80%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Policy TTC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11.8 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+policy_v2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11.8 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+policy POMDP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12.8 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
