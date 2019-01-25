@@ -16,9 +16,18 @@ An Introduction to Deep Reinforcement Learning, MacGill, Google Brain, Facebook 
   https://arxiv.org/abs/1801.08757  
 * Constrained Policy Optimization, 2017, J Achiam,  P Abbeel (Berkeley)   
   https://arxiv.org/abs/1705.10528  
+* Uncertainty-Aware Reinforcement Learning for Collision Avoidance, G. Kahn, , P Abbeel (Berkeley)  
+  https://arxiv.org/abs/1702.01182  
+* Safe Actor-Critic, 2018 MacGill + DeepMind  
+  https://sites.google.com/view/rl-uai2018/schedule  
   
 **RL and AD:**  
 * Reinforcement Learning for Autonomous Maneuvering in Highway Scenarios, 2017, Werling (BMW)   
   https://www.uni-das.de/images/pdf/veroeffentlichungen/2017/04.pdf
 * High-level Decision Making for Safe and Reasonable Autonomous Lane Changing using Reinforcement Learning, 2018 Werling (BMW)  
   http://mediatum.ub.tum.de/doc/1454224/712763187208.pdf  
+* Exploring applications of deep reinforcement learning for real-world autonomous driving systems, 2019, ENSTA  
+  https://arxiv.org/abs/1901.01536  
+* Reinforcement Learning with Probabilistic Guarantees for Autonomous Driving, 2018, M. Bouton (Stanford)  
+  https://sites.google.com/view/rl-uai2018/schedule  
+  
