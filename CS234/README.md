@@ -31,3 +31,7 @@ An Introduction to Deep Reinforcement Learning, MacGill, Google Brain, Facebook 
 * Reinforcement Learning with Probabilistic Guarantees for Autonomous Driving, 2018, M. Bouton (Stanford)  
   https://sites.google.com/view/rl-uai2018/schedule  
   
+**Experimental Setup:**
+* https://yanpanlau.github.io/2016/10/11/Torcs-Keras.html  
+* https://cscs.mpi-inf.mpg.de/files/2018/09/09-Risk-Averse-Robust-Adversarial-Reinforcement-Learning.pdf  
+  
