@@ -20,6 +20,8 @@ An Introduction to Deep Reinforcement Learning, MacGill, Google Brain, Facebook 
   https://arxiv.org/abs/1702.01182  
 * Safe Actor-Critic, 2018 MacGill + DeepMind  
   https://sites.google.com/view/rl-uai2018/schedule  
+* Design of safe control policies for large-scale non-linear systems operating in uncertain environments  (INRIA, Renault)    
+  https://eleurent.github.io/robust-control/ 
   
 **RL and AD:**  
 * Reinforcement Learning for Autonomous Maneuvering in Highway Scenarios, 2017, Werling (BMW)   
