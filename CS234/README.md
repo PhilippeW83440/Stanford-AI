@@ -7,10 +7,10 @@ An Introduction to Deep Reinforcement Learning, MacGill, Google Brain, Facebook 
 **Safe RL overview:**
 * A Comprehensive Survey on Safe Reinforcement Learning  
   http://www.jmlr.org/papers/volume16/garcia15a/garcia15a.pdf  
-    
-* https://las.inf.ethz.ch/files/ewrl18_SafeRL_tutorial.pdf  
-* https://www.youtube.com/watch?v=saHMbn84V_s  
-* https://medium.com/@harshitsikchi/towards-safe-reinforcement-learning-88b7caa5702e  
+
+* https://las.inf.ethz.ch/files/ewrl18_SafeRL_tutorial.pdf
+* https://www.youtube.com/watch?v=saHMbn84V_s
+* https://medium.com/@harshitsikchi/towards-safe-reinforcement-learning-88b7caa5702e
 
 **Safe RL papers:**
 * Safe Control under Uncertainty, 2015 D. Sadigh (Berkeley), Kapoor (Microsoft Research)  
