@@ -5,6 +5,9 @@ MS&E338 Reinforcement Learning https://web.stanford.edu/class/msande338/lecture_
 An Introduction to Deep Reinforcement Learning, MacGill, Google Brain, Facebook https://arxiv.org/abs/1811.12560  
   
 **Safe RL overview:**
+* A Comprehensive Survey on Safe Reinforcement Learning  
+  http://www.jmlr.org/papers/volume16/garcia15a/garcia15a.pdf  
+    
 * https://las.inf.ethz.ch/files/ewrl18_SafeRL_tutorial.pdf  
 * https://www.youtube.com/watch?v=saHMbn84V_s  
 * https://medium.com/@harshitsikchi/towards-safe-reinforcement-learning-88b7caa5702e  
@@ -21,7 +24,9 @@ An Introduction to Deep Reinforcement Learning, MacGill, Google Brain, Facebook 
 * Safe Actor-Critic, 2018 MacGill + DeepMind  
   https://sites.google.com/view/rl-uai2018/schedule  
 * Design of safe control policies for large-scale non-linear systems operating in uncertain environments  (INRIA, Renault)    
-  https://eleurent.github.io/robust-control/ 
+  https://eleurent.github.io/robust-control/  
+* Reinforcement learning under circumstances beyond its control  
+  https://pdfs.semanticscholar.org/7c61/0c97c56e9e3108af9ac00faacce5dbd2ac0c.pdf  
   
 **RL and AD:**  
 * Reinforcement Learning for Autonomous Maneuvering in Highway Scenarios, 2017, Werling (BMW)   
