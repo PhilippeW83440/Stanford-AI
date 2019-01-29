@@ -27,8 +27,11 @@ An Introduction to Deep Reinforcement Learning, MacGill, Google Brain, Facebook 
   https://eleurent.github.io/robust-control/  
 * Reinforcement learning under circumstances beyond its control  
   https://pdfs.semanticscholar.org/7c61/0c97c56e9e3108af9ac00faacce5dbd2ac0c.pdf  
-* Reward Constrained Policy Optimization, 2019, Technion + DeepMind
+* Reward Constrained Policy Optimization, 2019, Technion + DeepMind  
   https://arxiv.org/abs/1805.11074  
+* Value constrained model-free continuous control, 2018, DeepMind  
+  http://phys2018.csail.mit.edu/papers/51.pdf  
+  
   
 **RL and AD:**  
 * Reinforcement Learning for Autonomous Maneuvering in Highway Scenarios, 2017, Werling (BMW)   
