@@ -31,6 +31,9 @@ An Introduction to Deep Reinforcement Learning, MacGill, Google Brain, Facebook 
   https://arxiv.org/abs/1805.11074  
 * Value constrained model-free continuous control, 2018, DeepMind  
   http://phys2018.csail.mit.edu/papers/51.pdf  
+
+Useful tools: 
+* dual gradient ascent algorithm: https://ee227c.github.io/notes/ee227c-lecture14.pdf  
   
   
 **RL and AD:**  
