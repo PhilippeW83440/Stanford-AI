@@ -1,6 +1,7 @@
 # References  
 http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html    
 Master2 MVA at ENS Paris Saclay, INRIA Lille http://researchers.lille.inria.fr/~lazaric/Webpage/MVA-RL_Course14.html  
+https://www.cse.iitm.ac.in/~ravi/courses/Reinforcement%20Learning.html  
 MS&E338 Reinforcement Learning https://web.stanford.edu/class/msande338/lecture_notes.html  
 An Introduction to Deep Reinforcement Learning, MacGill, Google Brain, Facebook https://arxiv.org/abs/1811.12560  
   
